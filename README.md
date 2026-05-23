@@ -4,9 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SnDflowerboxponorogo - Pesan Papan Bunga</title>
+<title>SnDflowerboxponorogo</title>
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -14,21 +15,19 @@
 }
 
 body{
-    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+    font-family:Arial,sans-serif;
     background:#f3f3f3;
-    min-height:100vh;
     padding:20px;
     display:flex;
     justify-content:center;
-    align-items:flex-start;
 }
 
 .container{
+    width:100%;
+    max-width:550px;
     background:white;
     border-radius:20px;
-    padding:32px;
-    max-width:550px;
-    width:100%;
+    padding:30px;
     box-shadow:0 10px 30px rgba(0,0,0,0.08);
 }
 
@@ -40,21 +39,20 @@ body{
 .logo{
     width:100px;
     height:100px;
-    object-fit:cover;
     border-radius:50%;
+    object-fit:cover;
     margin-bottom:15px;
     box-shadow:0 4px 12px rgba(0,0,0,0.15);
 }
 
 .header h1{
-    font-size:32px;
-    color:#222;
+    font-size:30px;
     margin-bottom:5px;
+    color:#222;
 }
 
 .header p{
     color:#666;
-    font-size:15px;
 }
 
 .form-group{
@@ -65,8 +63,8 @@ label{
     display:block;
     margin-bottom:8px;
     font-size:14px;
+    font-weight:bold;
     color:#333;
-    font-weight:600;
 }
 
 .required::after{
@@ -79,9 +77,8 @@ textarea{
     width:100%;
     padding:12px;
     border:1px solid #ddd;
-    border-radius:10px;
+    border-radius:12px;
     font-size:14px;
-    transition:0.3s;
 }
 
 input:focus,
@@ -96,13 +93,13 @@ textarea{
 }
 
 .example-box{
-    background:#f9f9f9;
+    background:#f8f8f8;
+    border-left:4px solid #25D366;
     padding:15px;
     border-radius:10px;
     margin-bottom:10px;
+    line-height:1.7;
     font-size:13px;
-    line-height:1.6;
-    border-left:4px solid #25D366;
 }
 
 .radio-group{
@@ -111,13 +108,15 @@ textarea{
     gap:10px;
 }
 
-.radio-item{
+.radio-item,
+.checkbox-item{
     display:flex;
     align-items:center;
     gap:10px;
 }
 
-.radio-item input{
+.radio-item input,
+.checkbox-item input{
     width:auto;
 }
 
@@ -125,16 +124,6 @@ textarea{
     display:flex;
     flex-wrap:wrap;
     gap:10px;
-}
-
-.checkbox-item{
-    display:flex;
-    align-items:center;
-    gap:5px;
-}
-
-.checkbox-item input{
-    width:auto;
 }
 
 .button-group{
@@ -148,15 +137,14 @@ button{
     padding:14px;
     border:none;
     border-radius:12px;
+    cursor:pointer;
     font-size:15px;
     font-weight:bold;
-    cursor:pointer;
     transition:0.3s;
 }
 
 .btn-preview{
-    background:#f1f1f1;
-    color:#333;
+    background:#eee;
 }
 
 .btn-preview:hover{
@@ -195,15 +183,11 @@ button{
     padding:25px;
 }
 
-.modal-content h2{
-    margin-bottom:20px;
-}
-
 .preview-item{
-    margin-bottom:12px;
-    padding:10px;
-    background:#f8f8f8;
+    background:#f7f7f7;
+    padding:12px;
     border-radius:10px;
+    margin-bottom:10px;
 }
 
 .success-alert{
@@ -229,7 +213,7 @@ button{
     }
 
     .header h1{
-        font-size:25px;
+        font-size:24px;
     }
 
     .button-group{
@@ -237,6 +221,7 @@ button{
     }
 
 }
+
 </style>
 </head>
 
@@ -245,10 +230,13 @@ button{
 <div class="container">
 
     <div class="header">
-        <img src="logo.png" alt="Logo" class="logo">
+
+        <img src="logo.png" class="logo">
 
         <h1>SnDflowerboxponorogo</h1>
+
         <p>Abadikan momenmu dengan kami</p>
+
     </div>
 
     <form id="orderForm">
@@ -259,24 +247,27 @@ button{
         </div>
 
         <div class="form-group">
-            <label>Instagram (Opsional)</label>
+            <label>Instagram</label>
             <input type="text" id="instagram">
         </div>
 
         <div class="form-group">
+
             <label class="required">Request Ucapan</label>
 
             <div class="example-box">
                 🎉 CONGRATULATIONS<br>
-                Genaro Atiallune, S.H<br>
+                Nama Penerima<br>
                 Wish U Luck<br>
-                From : Me
+                From : Nama Pengirim
             </div>
 
             <textarea id="ucapan"></textarea>
+
         </div>
 
         <div class="form-group">
+
             <label class="required">Jenis Papan Bunga</label>
 
             <div class="radio-group">
@@ -307,6 +298,7 @@ button{
                 </div>
 
             </div>
+
         </div>
 
         <div class="form-group">
@@ -315,6 +307,27 @@ button{
         </div>
 
         <div class="form-group">
+
+            <label>Selendang</label>
+
+            <div class="radio-group">
+
+                <div class="radio-item">
+                    <input type="radio" name="selendang" value="Pakai">
+                    <span>Pakai</span>
+                </div>
+
+                <div class="radio-item">
+                    <input type="radio" name="selendang" value="Tidak">
+                    <span>Tidak</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="form-group">
+
             <label>Warna Bunga</label>
 
             <div class="checkbox-group">
@@ -339,7 +352,23 @@ button{
                     <span>Biru</span>
                 </div>
 
+                <div class="checkbox-item">
+                    <input type="checkbox" value="Ungu" class="warnaBunga">
+                    <span>Ungu</span>
+                </div>
+
             </div>
+
+        </div>
+
+        <div class="form-group">
+            <label>Tanggal Pengantaran</label>
+            <input type="date" id="tanggal">
+        </div>
+
+        <div class="form-group">
+            <label>Waktu Pengantaran</label>
+            <input type="time" id="waktu">
         </div>
 
         <div class="form-group">
@@ -352,7 +381,18 @@ button{
             <input type="tel" id="whatsapp">
         </div>
 
+        <div class="form-group">
+            <label>Request Emoji</label>
+            <input type="text" id="emoji" placeholder="🎉 💐 🌸">
+        </div>
+
+        <div class="form-group">
+            <label>Upload Referensi</label>
+            <input type="file" id="foto">
+        </div>
+
         <div class="button-group">
+
             <button type="button" class="btn-preview" onclick="previewPesanan()">
                 Preview
             </button>
@@ -360,6 +400,7 @@ button{
             <button type="button" class="btn-submit" onclick="sendWhatsApp()">
                 Kirim WhatsApp
             </button>
+
         </div>
 
     </form>
@@ -370,7 +411,7 @@ button{
 
     <div class="modal-content">
 
-        <h2>Preview Pesanan</h2>
+        <h2 style="margin-bottom:20px;">Preview Pesanan</h2>
 
         <div id="previewContent"></div>
 
@@ -405,35 +446,76 @@ function getData(){
     .join(', ');
 
     return {
+
         nama: document.getElementById('nama').value,
         instagram: document.getElementById('instagram').value,
         ucapan: document.getElementById('ucapan').value,
         jenis: document.querySelector('input[name="jenis"]:checked')?.value || '',
         warna: document.getElementById('warna').value,
+        selendang: document.querySelector('input[name="selendang"]:checked')?.value || '',
         warnaBunga,
+        tanggal: document.getElementById('tanggal').value,
+        waktu: document.getElementById('waktu').value,
         alamat: document.getElementById('alamat').value,
-        whatsapp: document.getElementById('whatsapp').value
+        whatsapp: document.getElementById('whatsapp').value,
+        emoji: document.getElementById('emoji').value
+
     };
+
+}
+
+function validateForm(){
+
+    const data = getData();
+
+    if(
+        !data.nama ||
+        !data.ucapan ||
+        !data.jenis ||
+        !data.warna ||
+        !data.alamat ||
+        !data.whatsapp
+    ){
+        alert("Lengkapi data terlebih dahulu!");
+        return false;
+    }
+
+    return true;
+
 }
 
 function previewPesanan(){
 
+    if(!validateForm()) return;
+
     const data = getData();
 
-    if(!data.nama || !data.ucapan || !data.jenis || !data.warna || !data.alamat || !data.whatsapp){
-        alert("Lengkapi data terlebih dahulu!");
-        return;
-    }
-
     const html = `
+
         <div class="preview-item"><b>Nama:</b> ${data.nama}</div>
+
         <div class="preview-item"><b>Instagram:</b> ${data.instagram}</div>
+
         <div class="preview-item"><b>Ucapan:</b> ${data.ucapan}</div>
+
         <div class="preview-item"><b>Jenis:</b> ${data.jenis}</div>
+
         <div class="preview-item"><b>Warna Tulisan:</b> ${data.warna}</div>
+
+        <div class="preview-item"><b>Selendang:</b> ${data.selendang}</div>
+
         <div class="preview-item"><b>Warna Bunga:</b> ${data.warnaBunga}</div>
+
+        <div class="preview-item"><b>Tanggal:</b> ${data.tanggal}</div>
+
+        <div class="preview-item"><b>Waktu:</b> ${data.waktu}</div>
+
         <div class="preview-item"><b>Alamat:</b> ${data.alamat}</div>
+
         <div class="preview-item"><b>WhatsApp:</b> ${data.whatsapp}</div>
+
+        <div class="preview-item"><b>Emoji:</b> ${data.emoji}</div>
+
     `;
 
     document.getElementById('previewContent').innerHTML = html;
@@ -443,7 +525,9 @@ function previewPesanan(){
 }
 
 function closeModal(){
+
     document.getElementById('modal').classList.remove('active');
+
 }
 
 function sendWhatsApp(){
@@ -463,9 +547,13 @@ function sendNow(){
     message += `Ucapan : ${data.ucapan}%0A`;
     message += `Jenis : ${data.jenis}%0A`;
     message += `Warna Tulisan : ${data.warna}%0A`;
+    message += `Selendang : ${data.selendang}%0A`;
     message += `Warna Bunga : ${data.warnaBunga}%0A`;
+    message += `Tanggal : ${data.tanggal}%0A`;
+    message += `Waktu : ${data.waktu}%0A`;
     message += `Alamat : ${data.alamat}%0A`;
-    message += `No WhatsApp : ${data.whatsapp}`;
+    message += `No WhatsApp : ${data.whatsapp}%0A`;
+    message += `Emoji : ${data.emoji}`;
 
     const url = `https://wa.me/${ADMIN_PHONE}?text=${message}`;
 
@@ -473,13 +561,15 @@ function sendNow(){
 
     setTimeout(() => {
 
-        window.open(url, '_blank');
+        window.open(url,'_blank');
 
         document.getElementById('successAlert').classList.remove('show');
 
         closeModal();
 
-    }, 1000);
+        document.getElementById('orderForm').reset();
+
+    },1000);
 
 }
 
