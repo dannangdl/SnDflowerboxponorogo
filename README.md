@@ -386,11 +386,6 @@ button{
             <input type="text" id="emoji" placeholder="🎉 💐 🌸">
         </div>
 
-        <div class="form-group">
-            <label>Upload Referensi</label>
-            <input type="file" id="foto">
-        </div>
-
         <div class="button-group">
 
             <button type="button" class="btn-preview" onclick="previewPesanan()">
