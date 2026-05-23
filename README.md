@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 
 <html lang="id">
 <head>
@@ -306,10 +306,10 @@ button{
         <label class="required">Request Ucapan</label>
 
         <div class="example-box">
-            🎉 CONGRATULATIONS<br>
-            Nama Penerima<br>
-            Wish U Luck<br>
-            From : Nama Pengirim
+           🎓CONGRATULATIONS<br>
+Genara Rengganis Atlalune S.H<br>
+I’m proud of you for never giving up at all<br>
+            From : SnD
         </div>
 
         <textarea id="ucapan"></textarea>
