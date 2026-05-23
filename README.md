@@ -37,12 +37,13 @@ body{
 }
 
 .logo{
-    width:100px;
+     width:100px;
     height:100px;
     border-radius:50%;
     object-fit:cover;
     margin-bottom:15px;
     box-shadow:0 4px 12px rgba(0,0,0,0.15);
+
 }
 
 .header h1{
