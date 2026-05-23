@@ -7,76 +7,97 @@
 
 <style>
 
+/* =========================
+   RESET
+========================= */
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
-html,body{
+html{
     width:100%;
     overflow-x:hidden;
-    overflow-y:auto;
-    -webkit-overflow-scrolling:touch;
+    scroll-behavior:smooth;
 }
 
 body{
+    width:100%;
+    min-height:100vh;
+    overflow-x:hidden;
+    overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
     font-family:Arial,sans-serif;
     background:#f3f3f3;
-    padding:20px;
+    padding:15px;
     display:flex;
     justify-content:center;
-    min-height:100vh;
     align-items:flex-start;
 }
+
+/* =========================
+   CONTAINER
+========================= */
 
 .container{
     width:100%;
     max-width:550px;
     background:white;
-    border-radius:20px;
-    padding:30px;
+    border-radius:22px;
+    padding:28px;
     box-shadow:0 10px 30px rgba(0,0,0,0.08);
-    margin:20px 0;
+    margin-bottom:40px;
 }
+
+/* =========================
+   HEADER
+========================= */
 
 .header{
     text-align:center;
-    margin-bottom:30px;
+    margin-bottom:28px;
 }
 
 .logo{
-    width:100px;
-    height:100px;
-    object-fit:cover;
+    width:95px;
+    height:95px;
     border-radius:50%;
+    object-fit:cover;
     margin-bottom:15px;
-    box-shadow:0 4px 12px rgba(0,0,0,0.15);
+    box-shadow:0 4px 14px rgba(0,0,0,0.15);
 }
 
 .header h1{
-    font-size:30px;
-    margin-bottom:5px;
+    font-size:28px;
     color:#222;
+    margin-bottom:6px;
+    word-break:break-word;
 }
 
 .header p{
+    font-size:14px;
     color:#666;
 }
+
+/* =========================
+   FORM
+========================= */
 
 .form-group{
     margin-bottom:20px;
 }
 
 .form-section{
-    margin-bottom:24px;
+    margin-bottom:25px;
 }
 
 .form-section-title{
-    font-size:13px;
+    font-size:14px;
     font-weight:bold;
-    margin-bottom:12px;
     color:#333;
+    margin-bottom:12px;
 }
 
 label{
@@ -85,6 +106,7 @@ label{
     font-size:14px;
     font-weight:bold;
     color:#333;
+    line-height:1.5;
 }
 
 .required::after{
@@ -92,59 +114,77 @@ label{
     color:red;
 }
 
+/* =========================
+   INPUT
+========================= */
+
 input,
-textarea{
+textarea,
+select{
     width:100%;
-    padding:12px;
+    padding:14px;
     border:1px solid #ddd;
-    border-radius:12px;
-    font-size:14px;
+    border-radius:14px;
+    font-size:15px;
+    background:white;
     transition:0.3s;
 }
 
 input:focus,
-textarea:focus{
+textarea:focus,
+select:focus{
     outline:none;
     border-color:#25D366;
+}
+
+textarea{
+    min-height:110px;
+    resize:vertical;
 }
 
 .error{
     border:2px solid red !important;
 }
 
-textarea{
-    min-height:100px;
-    resize:vertical;
-}
+/* =========================
+   EXAMPLE
+========================= */
 
 .example-box{
     background:#f8f8f8;
     border-left:4px solid #25D366;
     padding:15px;
-    border-radius:10px;
-    margin-bottom:10px;
+    border-radius:12px;
+    margin-bottom:12px;
     line-height:1.7;
     font-size:13px;
+    word-break:break-word;
 }
+
+/* =========================
+   RADIO & CHECKBOX
+========================= */
 
 .radio-group{
     display:flex;
     flex-direction:column;
-    gap:10px;
+    gap:12px;
 }
 
 .radio-item,
 .checkbox-item,
 .color-option{
     display:flex;
-    align-items:center;
+    align-items:flex-start;
     gap:10px;
+    flex-wrap:wrap;
 }
 
 .radio-item input,
 .checkbox-item input,
 .color-option input{
     width:auto;
+    margin-top:3px;
 }
 
 .checkbox-group,
@@ -154,26 +194,34 @@ textarea{
     gap:12px;
 }
 
+/* =========================
+   DATE
+========================= */
+
 .date-time-group{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:12px;
+    gap:14px;
 }
+
+/* =========================
+   BUTTON
+========================= */
 
 .button-group{
     display:flex;
-    gap:15px;
+    gap:14px;
     margin-top:30px;
 }
 
 button{
     flex:1;
-    padding:14px;
     border:none;
-    border-radius:12px;
-    cursor:pointer;
+    border-radius:14px;
+    padding:15px;
     font-size:15px;
     font-weight:bold;
+    cursor:pointer;
     transition:0.3s;
 }
 
@@ -194,6 +242,10 @@ button{
     background:#1ebe5d;
 }
 
+/* =========================
+   MODAL
+========================= */
+
 .modal{
     display:none;
     position:fixed;
@@ -201,7 +253,7 @@ button{
     background:rgba(0,0,0,0.5);
     justify-content:center;
     align-items:center;
-    padding:20px;
+    padding:18px;
     z-index:999;
     overflow-y:auto;
 }
@@ -211,11 +263,11 @@ button{
 }
 
 .modal-content{
-    background:white;
     width:100%;
     max-width:500px;
+    background:white;
     border-radius:20px;
-    padding:25px;
+    padding:24px;
     max-height:90vh;
     overflow-y:auto;
 }
@@ -223,9 +275,15 @@ button{
 .preview-item{
     background:#f7f7f7;
     padding:12px;
-    border-radius:10px;
+    border-radius:12px;
     margin-bottom:10px;
+    word-break:break-word;
+    line-height:1.6;
 }
+
+/* =========================
+   ALERT
+========================= */
 
 .success-alert{
     position:fixed;
@@ -234,42 +292,149 @@ button{
     background:#25D366;
     color:white;
     padding:14px 18px;
-    border-radius:10px;
-    display:none;
+    border-radius:12px;
     z-index:9999;
+    display:none;
+    max-width:90%;
 }
 
 .success-alert.show{
     display:block;
 }
 
-@media(max-width:600px){
+/* =========================
+   TABLET
+========================= */
+
+@media(max-width:768px){
 
     body{
         padding:12px;
     }
 
     .container{
-        padding:20px;
-        border-radius:16px;
+        padding:24px;
+        border-radius:18px;
     }
 
     .header h1{
         font-size:24px;
     }
 
-    .button-group{
-        flex-direction:column;
-    }
-
     .date-time-group{
         grid-template-columns:1fr;
+    }
+
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+    body{
+        padding:10px;
+    }
+
+    .container{
+        width:100%;
+        padding:18px;
+        border-radius:16px;
+        margin:0;
+    }
+
+    .logo{
+        width:85px;
+        height:85px;
+    }
+
+    .header h1{
+        font-size:22px;
+    }
+
+    .header p{
+        font-size:13px;
+    }
+
+    input,
+    textarea,
+    select{
+        font-size:14px;
+        padding:13px;
+    }
+
+    .button-group{
+        flex-direction:column;
     }
 
     button{
         width:100%;
     }
 
+    .modal{
+        padding:10px;
+        align-items:flex-end;
+    }
+
+    .modal-content{
+        max-width:100%;
+        border-radius:20px 20px 0 0;
+        padding:20px;
+        max-height:92vh;
+    }
+
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media(max-width:400px){
+
+    .container{
+        padding:15px;
+    }
+
+    .header h1{
+        font-size:20px;
+    }
+
+    label{
+        font-size:13px;
+    }
+
+    input,
+    textarea{
+        font-size:13px;
+        padding:12px;
+    }
+
+    button{
+        font-size:14px;
+        padding:14px;
+    }
+
+    .preview-item{
+        font-size:13px;
+    }
+
+}
+
+/* =========================
+   FIX OVERFLOW
+========================= */
+
+img,
+iframe,
+video{
+    max-width:100%;
+}
+
+table{
+    width:100%;
+    overflow-x:auto;
+    display:block;
 }
 
 </style>
@@ -387,55 +552,16 @@ Pilih beberapa opsi warna bunga
 
 <div class="color-options">
 
-<div class="color-option">
-<input type="checkbox" value="Merah" class="warnaBunga">
-<label>Merah</label>
-</div>
-
-<div class="color-option">
-<input type="checkbox" value="Pink" class="warnaBunga">
-<label>Pink</label>
-</div>
-
-<div class="color-option">
-<input type="checkbox" value="Biru" class="warnaBunga">
-<label>Biru</label>
-</div>
-
-<div class="color-option">
-<input type="checkbox" value="Ungu" class="warnaBunga">
-<label>Ungu</label>
-</div>
-
-<div class="color-option">
-<input type="checkbox" value="Putih" class="warnaBunga">
-<label>Putih</label>
-</div>
-
-<div class="color-option">
-<input type="checkbox" value="Peach" class="warnaBunga">
-<label>Peach</label>
-</div>
-
-<div class="color-option">
-<input type="checkbox" value="Kuning" class="warnaBunga">
-<label>Kuning</label>
-</div>
-
-<div class="color-option">
-<input type="checkbox" value="Hijau" class="warnaBunga">
-<label>Hijau</label>
-</div>
-
-<div class="color-option">
-<input type="checkbox" value="Coklat" class="warnaBunga">
-<label>Coklat</label>
-</div>
-
-<div class="color-option">
-<input type="checkbox" value="Mix" class="warnaBunga">
-<label>Mix</label>
-</div>
+<div class="color-option"><input type="checkbox" value="Merah" class="warnaBunga"><label>Merah</label></div>
+<div class="color-option"><input type="checkbox" value="Pink" class="warnaBunga"><label>Pink</label></div>
+<div class="color-option"><input type="checkbox" value="Biru" class="warnaBunga"><label>Biru</label></div>
+<div class="color-option"><input type="checkbox" value="Ungu" class="warnaBunga"><label>Ungu</label></div>
+<div class="color-option"><input type="checkbox" value="Putih" class="warnaBunga"><label>Putih</label></div>
+<div class="color-option"><input type="checkbox" value="Peach" class="warnaBunga"><label>Peach</label></div>
+<div class="color-option"><input type="checkbox" value="Kuning" class="warnaBunga"><label>Kuning</label></div>
+<div class="color-option"><input type="checkbox" value="Hijau" class="warnaBunga"><label>Hijau</label></div>
+<div class="color-option"><input type="checkbox" value="Coklat" class="warnaBunga"><label>Coklat</label></div>
+<div class="color-option"><input type="checkbox" value="Mix" class="warnaBunga"><label>Mix</label></div>
 
 </div>
 
@@ -580,11 +706,6 @@ valid = false;
 }
 
 if(!data.jenis){
-
-document.querySelectorAll('input[name="jenis"]').forEach(el=>{
-el.parentElement.style.color = 'red';
-});
-
 valid = false;
 }
 
@@ -624,27 +745,16 @@ const data = getData();
 const html = `
 
 <div class="preview-item"><b>Nama:</b> ${data.nama}</div>
-
 <div class="preview-item"><b>Instagram:</b> ${data.instagram}</div>
-
 <div class="preview-item"><b>Ucapan:</b> ${data.ucapan}</div>
-
 <div class="preview-item"><b>Jenis:</b> ${data.jenis}</div>
-
 <div class="preview-item"><b>Warna Tulisan:</b> ${data.warna}</div>
-
 <div class="preview-item"><b>Selendang:</b> ${data.selendang}</div>
-
 <div class="preview-item"><b>Warna Bunga:</b> ${data.warnaBunga}</div>
-
 <div class="preview-item"><b>Tanggal:</b> ${data.tanggal}</div>
-
 <div class="preview-item"><b>Waktu:</b> ${data.waktu}</div>
-
 <div class="preview-item"><b>Alamat:</b> ${data.alamat}</div>
-
 <div class="preview-item"><b>WhatsApp:</b> ${data.whatsapp}</div>
-
 <div class="preview-item"><b>Emoji:</b> ${data.emoji}</div>
 
 `;
