@@ -1,10 +1,10 @@
+<!DOCTYPE html>
 
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
+<title>SnDflowerboxponorogo</title>
 
 <style>
 
@@ -14,12 +14,23 @@
     box-sizing:border-box;
 }
 
+html, body{
+    width:100%;
+    overflow-x:hidden;
+    overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
+}
+
 body{
     font-family:Arial,sans-serif;
     background:#f3f3f3;
     padding:20px;
     display:flex;
     justify-content:center;
+    min-height:100vh;
+    overflow-x:hidden;
+    overflow-y:auto;
+    align-items:flex-start;
 }
 
 .container{
@@ -29,6 +40,7 @@ body{
     border-radius:20px;
     padding:30px;
     box-shadow:0 10px 30px rgba(0,0,0,0.08);
+    margin:20px 0;
 }
 
 .header{
@@ -189,6 +201,7 @@ button{
     align-items:center;
     padding:20px;
     z-index:999;
+    overflow-y:auto;
 }
 
 .modal.active{
@@ -201,6 +214,8 @@ button{
     max-width:500px;
     border-radius:20px;
     padding:25px;
+    max-height:90vh;
+    overflow-y:auto;
 }
 
 .preview-item{
@@ -228,8 +243,13 @@ button{
 
 @media(max-width:600px){
 
+    body{
+        padding:12px;
+    }
+
     .container{
         padding:20px;
+        border-radius:16px;
     }
 
     .header h1{
@@ -244,271 +264,264 @@ button{
         grid-template-columns:1fr;
     }
 
+    button{
+        width:100%;
+    }
+
 }
 
 </style>
+
 </head>
 
 <body>
 
 <div class="container">
 
-    <div class="header">
+```
+<div class="header">
 
-        <img src="logo.png" alt="Logo" class="logo">
+    <img src="logo.png" alt="Logo" class="logo">
 
-        <h1>SnDflowerboxponorogo</h1>
+    <h1>SnDflowerboxponorogo</h1>
 
-        <p>Abadikan momenmu dengan kami</p>
-
-    </div>
-
-    <form id="orderForm">
-
-        <!-- Nama -->
-        <div class="form-group">
-            <label class="required">Nama Pemesan</label>
-            <input type="text" id="nama">
-        </div>
-
-        <!-- Instagram -->
-        <div class="form-group">
-            <label>Instagram</label>
-            <input type="text" id="instagram">
-        </div>
-
-        <!-- Ucapan -->
-        <div class="form-group">
-
-            <label class="required">Request Ucapan</label>
-
-            <div class="example-box">
-                🎉 CONGRATULATIONS<br>
-                Nama Penerima<br>
-                Wish U Luck<br>
-                From : Nama Pengirim
-            </div>
-
-            <textarea id="ucapan"></textarea>
-
-        </div>
-
-        <!-- Jenis -->
-        <div class="form-group">
-
-            <label class="required">Jenis Papan Bunga</label>
-
-            <div class="radio-group">
-
-                <div class="radio-item">
-                    <input type="radio" name="jenis" value="Akrilik Bulat Putih">
-                    <span>Akrilik Bulat Putih</span>
-                </div>
-
-                <div class="radio-item">
-                    <input type="radio" name="jenis" value="Akrilik Bulat Hitam">
-                    <span>Akrilik Bulat Hitam</span>
-                </div>
-
-                <div class="radio-item">
-                    <input type="radio" name="jenis" value="Akrilik Kubah Putih">
-                    <span>Akrilik Kubah Putih</span>
-                </div>
-
-                <div class="radio-item">
-                    <input type="radio" name="jenis" value="Akrilik Kubah Hitam">
-                    <span>Akrilik Kubah Hitam</span>
-                </div>
-
-                <div class="radio-item">
-                    <input type="radio" name="jenis" value="Akrilik Ring Besi">
-                    <span>Akrilik Ring Besi</span>
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- Warna Tulisan -->
-        <div class="form-group">
-            <label class="required">Request Warna Tulisan</label>
-            <input type="text" id="warna">
-        </div>
-
-        <!-- Selendang -->
-        <div class="form-section">
-
-            <div class="form-section-title">
-                Selendang
-            </div>
-
-            <div class="checkbox-group">
-
-                <div class="checkbox-item">
-                    <input type="radio" name="selendang" value="Pakai">
-                    <label>Pakai</label>
-                </div>
-
-                <div class="checkbox-item">
-                    <input type="radio" name="selendang" value="Tidak">
-                    <label>Tidak</label>
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- Warna Bunga -->
-        <div class="form-section">
-
-            <div class="form-section-title">
-                Pilih beberapa opsi warna bunga
-            </div>
-
-            <div class="color-options">
-
-                <div class="color-option">
-                    <input type="checkbox" value="Merah" class="warnaBunga">
-                    <label>Merah</label>
-                </div>
-
-                <div class="color-option">
-                    <input type="checkbox" value="Pink" class="warnaBunga">
-                    <label>Pink</label>
-                </div>
-
-                <div class="color-option">
-                    <input type="checkbox" value="Biru" class="warnaBunga">
-                    <label>Biru</label>
-                </div>
-
-                <div class="color-option">
-                    <input type="checkbox" value="Ungu" class="warnaBunga">
-                    <label>Ungu</label>
-                </div>
-
-                <div class="color-option">
-                    <input type="checkbox" value="Putih" class="warnaBunga">
-                    <label>Putih</label>
-                </div>
-
-                <div class="color-option">
-                    <input type="checkbox" value="Peach" class="warnaBunga">
-                    <label>Peach</label>
-                </div>
-
-                <div class="color-option">
-                    <input type="checkbox" value="Kuning" class="warnaBunga">
-                    <label>Kuning</label>
-                </div>
-
-                <div class="color-option">
-                    <input type="checkbox" value="Hijau" class="warnaBunga">
-                    <label>Hijau</label>
-                </div>
-
-                <div class="color-option">
-                    <input type="checkbox" value="Coklat" class="warnaBunga">
-                    <label>Coklat</label>
-                </div>
-
-                <div class="color-option">
-                    <input type="checkbox" value="Mix" class="warnaBunga">
-                    <label>Mix</label>
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- Tanggal -->
-        <div class="form-section">
-
-            <div class="form-section-title">
-                Pilih tanggal dan waktu Pengantaran
-            </div>
-
-            <div class="date-time-group">
-
-                <div class="form-group">
-                    <label>Pilih tanggal</label>
-                    <input type="date" id="tanggal">
-                </div>
-
-                <div class="form-group">
-                    <label>Pilih waktu</label>
-                    <input type="time" id="waktu">
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- Alamat -->
-        <div class="form-group">
-            <label class="required">Alamat Pengantaran / Gedung</label>
-            <input type="text" id="alamat">
-        </div>
-
-        <!-- WhatsApp -->
-        <div class="form-group">
-            <label class="required">WhatsApp Pemesan</label>
-            <input type="tel" id="whatsapp">
-        </div>
-
-        <!-- Emoji -->
-        <div class="form-group">
-            <label>Request Emoji</label>
-            <input type="text" id="emoji" placeholder="🎉 💐 🌸 ⚙️">
-        </div>
-
-        <!-- Upload -->
-
-        <!-- Button -->
-        <div class="button-group">
-
-            <button type="button" class="btn-preview" onclick="previewPesanan()">
-                Preview
-            </button>
-
-            <button type="button" class="btn-submit" onclick="sendWhatsApp()">
-                Kirim WhatsApp
-            </button>
-
-        </div>
-
-    </form>
+    <p>Abadikan momenmu dengan kami</p>
 
 </div>
 
-<!-- Modal -->
+<form id="orderForm">
+
+    <div class="form-group">
+        <label class="required">Nama Pemesan</label>
+        <input type="text" id="nama">
+    </div>
+
+    <div class="form-group">
+        <label>Instagram</label>
+        <input type="text" id="instagram">
+    </div>
+
+    <div class="form-group">
+
+        <label class="required">Request Ucapan</label>
+
+        <div class="example-box">
+            🎉 CONGRATULATIONS<br>
+            Nama Penerima<br>
+            Wish U Luck<br>
+            From : Nama Pengirim
+        </div>
+
+        <textarea id="ucapan"></textarea>
+
+    </div>
+
+    <div class="form-group">
+
+        <label class="required">Jenis Papan Bunga</label>
+
+        <div class="radio-group">
+
+            <div class="radio-item">
+                <input type="radio" name="jenis" value="Akrilik Bulat Putih">
+                <span>Akrilik Bulat Putih</span>
+            </div>
+
+            <div class="radio-item">
+                <input type="radio" name="jenis" value="Akrilik Bulat Hitam">
+                <span>Akrilik Bulat Hitam</span>
+            </div>
+
+            <div class="radio-item">
+                <input type="radio" name="jenis" value="Akrilik Kubah Putih">
+                <span>Akrilik Kubah Putih</span>
+            </div>
+
+            <div class="radio-item">
+                <input type="radio" name="jenis" value="Akrilik Kubah Hitam">
+                <span>Akrilik Kubah Hitam</span>
+            </div>
+
+            <div class="radio-item">
+                <input type="radio" name="jenis" value="Akrilik Ring Besi">
+                <span>Akrilik Ring Besi</span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="form-group">
+        <label class="required">Request Warna Tulisan</label>
+        <input type="text" id="warna">
+    </div>
+
+    <div class="form-section">
+
+        <div class="form-section-title">
+            Selendang
+        </div>
+
+        <div class="checkbox-group">
+
+            <div class="checkbox-item">
+                <input type="radio" name="selendang" value="Pakai">
+                <label>Pakai</label>
+            </div>
+
+            <div class="checkbox-item">
+                <input type="radio" name="selendang" value="Tidak">
+                <label>Tidak</label>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="form-section">
+
+        <div class="form-section-title">
+            Pilih beberapa opsi warna bunga
+        </div>
+
+        <div class="color-options">
+
+            <div class="color-option">
+                <input type="checkbox" value="Merah" class="warnaBunga">
+                <label>Merah</label>
+            </div>
+
+            <div class="color-option">
+                <input type="checkbox" value="Pink" class="warnaBunga">
+                <label>Pink</label>
+            </div>
+
+            <div class="color-option">
+                <input type="checkbox" value="Biru" class="warnaBunga">
+                <label>Biru</label>
+            </div>
+
+            <div class="color-option">
+                <input type="checkbox" value="Ungu" class="warnaBunga">
+                <label>Ungu</label>
+            </div>
+
+            <div class="color-option">
+                <input type="checkbox" value="Putih" class="warnaBunga">
+                <label>Putih</label>
+            </div>
+
+            <div class="color-option">
+                <input type="checkbox" value="Peach" class="warnaBunga">
+                <label>Peach</label>
+            </div>
+
+            <div class="color-option">
+                <input type="checkbox" value="Kuning" class="warnaBunga">
+                <label>Kuning</label>
+            </div>
+
+            <div class="color-option">
+                <input type="checkbox" value="Hijau" class="warnaBunga">
+                <label>Hijau</label>
+            </div>
+
+            <div class="color-option">
+                <input type="checkbox" value="Coklat" class="warnaBunga">
+                <label>Coklat</label>
+            </div>
+
+            <div class="color-option">
+                <input type="checkbox" value="Mix" class="warnaBunga">
+                <label>Mix</label>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="form-section">
+
+        <div class="form-section-title">
+            Pilih tanggal dan waktu Pengantaran
+        </div>
+
+        <div class="date-time-group">
+
+            <div class="form-group">
+                <label>Pilih tanggal</label>
+                <input type="date" id="tanggal">
+            </div>
+
+            <div class="form-group">
+                <label>Pilih waktu</label>
+                <input type="time" id="waktu">
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="form-group">
+        <label class="required">Alamat Pengantaran / Gedung</label>
+        <input type="text" id="alamat">
+    </div>
+
+    <div class="form-group">
+        <label class="required">WhatsApp Pemesan</label>
+        <input type="tel" id="whatsapp">
+    </div>
+
+    <div class="form-group">
+        <label>Request Emoji</label>
+        <input type="text" id="emoji" placeholder="🎉 💐 🌸 ⚙️">
+    </div>
+
+    <div class="button-group">
+
+        <button type="button" class="btn-preview" onclick="previewPesanan()">
+            Preview
+        </button>
+
+        <button type="button" class="btn-submit" onclick="sendWhatsApp()">
+            Kirim WhatsApp
+        </button>
+
+    </div>
+
+</form>
+```
+
+</div>
+
 <div class="modal" id="modal">
 
-    <div class="modal-content">
+```
+<div class="modal-content">
 
-        <h2 style="margin-bottom:20px;">
-            Preview Pesanan
-        </h2>
+    <h2 style="margin-bottom:20px;">
+        Preview Pesanan
+    </h2>
 
-        <div id="previewContent"></div>
+    <div id="previewContent"></div>
 
-        <div class="button-group">
+    <div class="button-group">
 
-            <button class="btn-preview" onclick="closeModal()">
-                Tutup
-            </button>
+        <button class="btn-preview" onclick="closeModal()">
+            Tutup
+        </button>
 
-            <button class="btn-submit" onclick="sendNow()">
-                Kirim
-            </button>
-
-        </div>
+        <button class="btn-submit" onclick="sendNow()">
+            Kirim
+        </button>
 
     </div>
 
 </div>
+```
 
-<!-- Alert -->
+</div>
+
 <div class="success-alert" id="successAlert">
     Membuka WhatsApp...
 </div>
@@ -655,3 +668,4 @@ function sendNow(){
 
 </body>
 </html>
+
