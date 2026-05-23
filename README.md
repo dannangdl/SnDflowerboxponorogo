@@ -1,5 +1,4 @@
-
-
+<!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
@@ -14,7 +13,7 @@
     box-sizing:border-box;
 }
 
-html, body{
+html,body{
     width:100%;
     overflow-x:hidden;
     overflow-y:auto;
@@ -28,8 +27,6 @@ body{
     display:flex;
     justify-content:center;
     min-height:100vh;
-    overflow-x:hidden;
-    overflow-y:auto;
     align-items:flex-start;
 }
 
@@ -102,12 +99,17 @@ textarea{
     border:1px solid #ddd;
     border-radius:12px;
     font-size:14px;
+    transition:0.3s;
 }
 
 input:focus,
 textarea:focus{
     outline:none;
     border-color:#25D366;
+}
+
+.error{
+    border:2px solid red !important;
 }
 
 textarea{
@@ -278,252 +280,248 @@ button{
 
 <div class="container">
 
-```
 <div class="header">
 
-    <img src="logo.png" alt="Logo" class="logo">
+<img src="logo.png" alt="Logo" class="logo">
 
-    <h1>SnDflowerboxponorogo</h1>
+<h1>SnDflowerboxponorogo</h1>
 
-    <p>Abadikan momenmu dengan kami</p>
+<p>Abadikan momenmu dengan kami</p>
 
 </div>
 
 <form id="orderForm">
 
-    <div class="form-group">
-        <label class="required">Nama Pemesan</label>
-        <input type="text" id="nama">
-    </div>
+<div class="form-group">
+<label class="required">Nama Pemesan</label>
+<input type="text" id="nama">
+</div>
 
-    <div class="form-group">
-        <label>Instagram</label>
-        <input type="text" id="instagram">
-    </div>
+<div class="form-group">
+<label>Instagram</label>
+<input type="text" id="instagram">
+</div>
 
-    <div class="form-group">
+<div class="form-group">
 
-        <label class="required">Request Ucapan</label>
+<label class="required">Request Ucapan</label>
 
-        <div class="example-box">
-           🎓CONGRATULATIONS<br>
+<div class="example-box">
+🎓CONGRATULATIONS<br>
 Genara Rengganis Atlalune S.H<br>
 I’m proud of you for never giving up at all<br>
-            From : SnD
-        </div>
+From : SnD
+</div>
 
-        <textarea id="ucapan"></textarea>
+<textarea id="ucapan"></textarea>
 
-    </div>
+</div>
 
-    <div class="form-group">
+<div class="form-group">
 
-        <label class="required">Jenis Papan Bunga</label>
+<label class="required">Jenis Papan Bunga</label>
 
-        <div class="radio-group">
+<div class="radio-group">
 
-            <div class="radio-item">
-                <input type="radio" name="jenis" value="Akrilik Bulat Putih">
-                <span>Akrilik Bulat Putih</span>
-            </div>
+<div class="radio-item">
+<input type="radio" name="jenis" value="Akrilik Bulat Putih">
+<span>Akrilik Bulat Putih</span>
+</div>
 
-            <div class="radio-item">
-                <input type="radio" name="jenis" value="Akrilik Bulat Hitam">
-                <span>Akrilik Bulat Hitam</span>
-            </div>
+<div class="radio-item">
+<input type="radio" name="jenis" value="Akrilik Bulat Hitam">
+<span>Akrilik Bulat Hitam</span>
+</div>
 
-            <div class="radio-item">
-                <input type="radio" name="jenis" value="Akrilik Kubah Putih">
-                <span>Akrilik Kubah Putih</span>
-            </div>
+<div class="radio-item">
+<input type="radio" name="jenis" value="Akrilik Kubah Putih">
+<span>Akrilik Kubah Putih</span>
+</div>
 
-            <div class="radio-item">
-                <input type="radio" name="jenis" value="Akrilik Kubah Hitam">
-                <span>Akrilik Kubah Hitam</span>
-            </div>
+<div class="radio-item">
+<input type="radio" name="jenis" value="Akrilik Kubah Hitam">
+<span>Akrilik Kubah Hitam</span>
+</div>
 
-            <div class="radio-item">
-                <input type="radio" name="jenis" value="Akrilik Ring Besi">
-                <span>Akrilik Ring Besi</span>
-            </div>
+<div class="radio-item">
+<input type="radio" name="jenis" value="Akrilik Ring Besi">
+<span>Akrilik Ring Besi</span>
+</div>
 
-        </div>
+</div>
 
-    </div>
+</div>
 
-    <div class="form-group">
-        <label class="required">Request Warna Tulisan</label>
-        <input type="text" id="warna">
-    </div>
+<div class="form-group">
+<label class="required">Request Warna Tulisan</label>
+<input type="text" id="warna">
+</div>
 
-    <div class="form-section">
+<div class="form-section">
 
-        <div class="form-section-title">
-            Selendang
-        </div>
+<div class="form-section-title">
+Selendang
+</div>
 
-        <div class="checkbox-group">
+<div class="checkbox-group">
 
-            <div class="checkbox-item">
-                <input type="radio" name="selendang" value="Pakai">
-                <label>Pakai</label>
-            </div>
+<div class="checkbox-item">
+<input type="radio" name="selendang" value="Pakai">
+<label>Pakai</label>
+</div>
 
-            <div class="checkbox-item">
-                <input type="radio" name="selendang" value="Tidak">
-                <label>Tidak</label>
-            </div>
+<div class="checkbox-item">
+<input type="radio" name="selendang" value="Tidak">
+<label>Tidak</label>
+</div>
 
-        </div>
+</div>
 
-    </div>
+</div>
 
-    <div class="form-section">
+<div class="form-section">
 
-        <div class="form-section-title">
-            Pilih beberapa opsi warna bunga
-        </div>
+<div class="form-section-title">
+Pilih beberapa opsi warna bunga
+</div>
 
-        <div class="color-options">
+<div class="color-options">
 
-            <div class="color-option">
-                <input type="checkbox" value="Merah" class="warnaBunga">
-                <label>Merah</label>
-            </div>
+<div class="color-option">
+<input type="checkbox" value="Merah" class="warnaBunga">
+<label>Merah</label>
+</div>
 
-            <div class="color-option">
-                <input type="checkbox" value="Pink" class="warnaBunga">
-                <label>Pink</label>
-            </div>
+<div class="color-option">
+<input type="checkbox" value="Pink" class="warnaBunga">
+<label>Pink</label>
+</div>
 
-            <div class="color-option">
-                <input type="checkbox" value="Biru" class="warnaBunga">
-                <label>Biru</label>
-            </div>
+<div class="color-option">
+<input type="checkbox" value="Biru" class="warnaBunga">
+<label>Biru</label>
+</div>
 
-            <div class="color-option">
-                <input type="checkbox" value="Ungu" class="warnaBunga">
-                <label>Ungu</label>
-            </div>
+<div class="color-option">
+<input type="checkbox" value="Ungu" class="warnaBunga">
+<label>Ungu</label>
+</div>
 
-            <div class="color-option">
-                <input type="checkbox" value="Putih" class="warnaBunga">
-                <label>Putih</label>
-            </div>
+<div class="color-option">
+<input type="checkbox" value="Putih" class="warnaBunga">
+<label>Putih</label>
+</div>
 
-            <div class="color-option">
-                <input type="checkbox" value="Peach" class="warnaBunga">
-                <label>Peach</label>
-            </div>
+<div class="color-option">
+<input type="checkbox" value="Peach" class="warnaBunga">
+<label>Peach</label>
+</div>
 
-            <div class="color-option">
-                <input type="checkbox" value="Kuning" class="warnaBunga">
-                <label>Kuning</label>
-            </div>
+<div class="color-option">
+<input type="checkbox" value="Kuning" class="warnaBunga">
+<label>Kuning</label>
+</div>
 
-            <div class="color-option">
-                <input type="checkbox" value="Hijau" class="warnaBunga">
-                <label>Hijau</label>
-            </div>
+<div class="color-option">
+<input type="checkbox" value="Hijau" class="warnaBunga">
+<label>Hijau</label>
+</div>
 
-            <div class="color-option">
-                <input type="checkbox" value="Coklat" class="warnaBunga">
-                <label>Coklat</label>
-            </div>
+<div class="color-option">
+<input type="checkbox" value="Coklat" class="warnaBunga">
+<label>Coklat</label>
+</div>
 
-            <div class="color-option">
-                <input type="checkbox" value="Mix" class="warnaBunga">
-                <label>Mix</label>
-            </div>
+<div class="color-option">
+<input type="checkbox" value="Mix" class="warnaBunga">
+<label>Mix</label>
+</div>
 
-        </div>
+</div>
 
-    </div>
+</div>
 
-    <div class="form-section">
+<div class="form-section">
 
-        <div class="form-section-title">
-            Pilih tanggal dan waktu Pengantaran
-        </div>
+<div class="form-section-title">
+Pilih tanggal dan waktu Pengantaran
+</div>
 
-        <div class="date-time-group">
+<div class="date-time-group">
 
-            <div class="form-group">
-                <label>Pilih tanggal</label>
-                <input type="date" id="tanggal">
-            </div>
+<div class="form-group">
+<label>Pilih tanggal</label>
+<input type="date" id="tanggal">
+</div>
 
-            <div class="form-group">
-                <label>Pilih waktu</label>
-                <input type="time" id="waktu">
-            </div>
+<div class="form-group">
+<label>Pilih waktu</label>
+<input type="time" id="waktu">
+</div>
 
-        </div>
+</div>
 
-    </div>
+</div>
 
-    <div class="form-group">
-        <label class="required">Alamat Pengantaran / Gedung</label>
-        <input type="text" id="alamat">
-    </div>
+<div class="form-group">
+<label class="required">Alamat Pengantaran / Gedung</label>
+<input type="text" id="alamat">
+</div>
 
-    <div class="form-group">
-        <label class="required">WhatsApp Pemesan</label>
-        <input type="tel" id="whatsapp">
-    </div>
+<div class="form-group">
+<label class="required">WhatsApp Pemesan</label>
+<input type="tel" id="whatsapp">
+</div>
 
-    <div class="form-group">
-        <label>Request Emoji</label>
-        <input type="text" id="emoji" placeholder="🎉 💐 🌸 ">
-    </div>
+<div class="form-group">
+<label>Request Emoji</label>
+<input type="text" id="emoji" placeholder="🎉 💐 🌸">
+</div>
 
-    <div class="button-group">
+<div class="button-group">
 
-        <button type="button" class="btn-preview" onclick="previewPesanan()">
-            Preview
-        </button>
+<button type="button" class="btn-preview" onclick="previewPesanan()">
+Preview
+</button>
 
-        <button type="button" class="btn-submit" onclick="sendWhatsApp()">
-            Kirim WhatsApp
-        </button>
+<button type="button" class="btn-submit" onclick="sendWhatsApp()">
+Kirim WhatsApp
+</button>
 
-    </div>
+</div>
 
 </form>
-```
 
 </div>
 
 <div class="modal" id="modal">
 
-```
 <div class="modal-content">
 
-    <h2 style="margin-bottom:20px;">
-        Preview Pesanan
-    </h2>
+<h2 style="margin-bottom:20px;">
+Preview Pesanan
+</h2>
 
-    <div id="previewContent"></div>
+<div id="previewContent"></div>
 
-    <div class="button-group">
+<div class="button-group">
 
-        <button class="btn-preview" onclick="closeModal()">
-            Tutup
-        </button>
+<button class="btn-preview" onclick="closeModal()">
+Tutup
+</button>
 
-        <button class="btn-submit" onclick="sendNow()">
-            Kirim
-        </button>
-
-    </div>
+<button class="btn-submit" onclick="sendNow()">
+Kirim
+</button>
 
 </div>
-```
+
+</div>
 
 </div>
 
 <div class="success-alert" id="successAlert">
-    Membuka WhatsApp...
+Membuka WhatsApp...
 </div>
 
 <script>
@@ -532,135 +530,175 @@ const ADMIN_PHONE = "6285135666976";
 
 function getData(){
 
-    const warnaBunga = [...document.querySelectorAll('.warnaBunga:checked')]
-    .map(el => el.value)
-    .join(', ');
+const warnaBunga = [...document.querySelectorAll('.warnaBunga:checked')]
+.map(el => el.value)
+.join(', ');
 
-    return {
+return {
 
-        nama: document.getElementById('nama').value,
-        instagram: document.getElementById('instagram').value,
-        ucapan: document.getElementById('ucapan').value,
-        jenis: document.querySelector('input[name="jenis"]:checked')?.value || '',
-        warna: document.getElementById('warna').value,
-        selendang: document.querySelector('input[name="selendang"]:checked')?.value || '',
-        warnaBunga,
-        tanggal: document.getElementById('tanggal').value,
-        waktu: document.getElementById('waktu').value,
-        alamat: document.getElementById('alamat').value,
-        whatsapp: document.getElementById('whatsapp').value,
-        emoji: document.getElementById('emoji').value
+nama: document.getElementById('nama').value,
+instagram: document.getElementById('instagram').value,
+ucapan: document.getElementById('ucapan').value,
+jenis: document.querySelector('input[name="jenis"]:checked')?.value || '',
+warna: document.getElementById('warna').value,
+selendang: document.querySelector('input[name="selendang"]:checked')?.value || '',
+warnaBunga,
+tanggal: document.getElementById('tanggal').value,
+waktu: document.getElementById('waktu').value,
+alamat: document.getElementById('alamat').value,
+whatsapp: document.getElementById('whatsapp').value,
+emoji: document.getElementById('emoji').value
 
-    };
+};
+
+}
+
+function resetError(){
+
+document.querySelectorAll('input, textarea').forEach(el=>{
+el.classList.remove('error');
+});
 
 }
 
 function validateForm(){
 
-    const data = getData();
+resetError();
 
-    if(
-        !data.nama ||
-        !data.ucapan ||
-        !data.jenis ||
-        !data.warna ||
-        !data.alamat ||
-        !data.whatsapp
-    ){
-        alert("Lengkapi data terlebih dahulu!");
-        return false;
-    }
+const data = getData();
 
-    return true;
+let valid = true;
+
+if(!data.nama){
+document.getElementById('nama').classList.add('error');
+valid = false;
+}
+
+if(!data.ucapan){
+document.getElementById('ucapan').classList.add('error');
+valid = false;
+}
+
+if(!data.jenis){
+
+document.querySelectorAll('input[name="jenis"]').forEach(el=>{
+el.parentElement.style.color = 'red';
+});
+
+valid = false;
+}
+
+if(!data.warna){
+document.getElementById('warna').classList.add('error');
+valid = false;
+}
+
+if(!data.alamat){
+document.getElementById('alamat').classList.add('error');
+valid = false;
+}
+
+if(!data.whatsapp){
+document.getElementById('whatsapp').classList.add('error');
+valid = false;
+}
+
+if(!valid){
+
+alert("Lengkapi data yang masih kosong!");
+
+return false;
+
+}
+
+return true;
 
 }
 
 function previewPesanan(){
 
-    if(!validateForm()) return;
+if(!validateForm()) return;
 
-    const data = getData();
+const data = getData();
 
-    const html = `
+const html = `
 
-        <div class="preview-item"><b>Nama:</b> ${data.nama}</div>
+<div class="preview-item"><b>Nama:</b> ${data.nama}</div>
 
-        <div class="preview-item"><b>Instagram:</b> ${data.instagram}</div>
+<div class="preview-item"><b>Instagram:</b> ${data.instagram}</div>
 
-        <div class="preview-item"><b>Ucapan:</b> ${data.ucapan}</div>
+<div class="preview-item"><b>Ucapan:</b> ${data.ucapan}</div>
 
-        <div class="preview-item"><b>Jenis:</b> ${data.jenis}</div>
+<div class="preview-item"><b>Jenis:</b> ${data.jenis}</div>
 
-        <div class="preview-item"><b>Warna Tulisan:</b> ${data.warna}</div>
+<div class="preview-item"><b>Warna Tulisan:</b> ${data.warna}</div>
 
-        <div class="preview-item"><b>Selendang:</b> ${data.selendang}</div>
+<div class="preview-item"><b>Selendang:</b> ${data.selendang}</div>
 
-        <div class="preview-item"><b>Warna Bunga:</b> ${data.warnaBunga}</div>
+<div class="preview-item"><b>Warna Bunga:</b> ${data.warnaBunga}</div>
 
-        <div class="preview-item"><b>Tanggal:</b> ${data.tanggal}</div>
+<div class="preview-item"><b>Tanggal:</b> ${data.tanggal}</div>
 
-        <div class="preview-item"><b>Waktu:</b> ${data.waktu}</div>
+<div class="preview-item"><b>Waktu:</b> ${data.waktu}</div>
 
-        <div class="preview-item"><b>Alamat:</b> ${data.alamat}</div>
+<div class="preview-item"><b>Alamat:</b> ${data.alamat}</div>
 
-        <div class="preview-item"><b>WhatsApp:</b> ${data.whatsapp}</div>
+<div class="preview-item"><b>WhatsApp:</b> ${data.whatsapp}</div>
 
-        <div class="preview-item"><b>Emoji:</b> ${data.emoji}</div>
+<div class="preview-item"><b>Emoji:</b> ${data.emoji}</div>
 
-    `;
+`;
 
-    document.getElementById('previewContent').innerHTML = html;
+document.getElementById('previewContent').innerHTML = html;
 
-    document.getElementById('modal').classList.add('active');
+document.getElementById('modal').classList.add('active');
 
 }
 
 function closeModal(){
 
-    document.getElementById('modal').classList.remove('active');
+document.getElementById('modal').classList.remove('active');
 
 }
 
 function sendWhatsApp(){
 
-    previewPesanan();
+previewPesanan();
 
 }
 
 function sendNow(){
 
-    const data = getData();
+const data = getData();
 
-    let message = `Halo Admin SnDflowerboxponorogo,%0A%0A`;
+let message = `Halo Admin SnDflowerboxponorogo,%0A%0A`;
 
-    message += `Nama : ${data.nama}%0A`;
-    message += `Instagram : ${data.instagram}%0A`;
-    message += `Ucapan : ${data.ucapan}%0A`;
-    message += `Jenis : ${data.jenis}%0A`;
-    message += `Warna Tulisan : ${data.warna}%0A`;
-    message += `Selendang : ${data.selendang}%0A`;
-    message += `Warna Bunga : ${data.warnaBunga}%0A`;
-    message += `Tanggal : ${data.tanggal}%0A`;
-    message += `Waktu : ${data.waktu}%0A`;
-    message += `Alamat : ${data.alamat}%0A`;
-    message += `No WhatsApp : ${data.whatsapp}%0A`;
-    message += `Emoji : ${data.emoji}`;
+message += `Nama : ${data.nama}%0A`;
+message += `Instagram : ${data.instagram}%0A`;
+message += `Ucapan : ${data.ucapan}%0A`;
+message += `Jenis : ${data.jenis}%0A`;
+message += `Warna Tulisan : ${data.warna}%0A`;
+message += `Selendang : ${data.selendang}%0A`;
+message += `Warna Bunga : ${data.warnaBunga}%0A`;
+message += `Tanggal : ${data.tanggal}%0A`;
+message += `Waktu : ${data.waktu}%0A`;
+message += `Alamat : ${data.alamat}%0A`;
+message += `No WhatsApp : ${data.whatsapp}%0A`;
+message += `Emoji : ${data.emoji}`;
 
-    const url = `https://wa.me/${ADMIN_PHONE}?text=${message}`;
+const url = `https://wa.me/${ADMIN_PHONE}?text=${message}`;
 
-    document.getElementById('successAlert').classList.add('show');
+document.getElementById('successAlert').classList.add('show');
 
-    setTimeout(() => {
+setTimeout(()=>{
 
-        window.open(url,'_blank');
+window.open(url,'_blank');
 
-        document.getElementById('successAlert').classList.remove('show');
+document.getElementById('successAlert').classList.remove('show');
 
-        closeModal();
+closeModal();
 
-        document.getElementById('orderForm').reset();
-
-    },1000);
+},1000);
 
 }
 
@@ -668,4 +706,3 @@ function sendNow(){
 
 </body>
 </html>
-
