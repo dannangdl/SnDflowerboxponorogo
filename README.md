@@ -474,7 +474,7 @@ I’m proud of you for never giving up at all<br>
 
     <div class="form-group">
         <label>Request Emoji</label>
-        <input type="text" id="emoji" placeholder="🎉 💐 🌸 ⚙️">
+        <input type="text" id="emoji" placeholder="🎉 💐 🌸 ">
     </div>
 
     <div class="button-group">
