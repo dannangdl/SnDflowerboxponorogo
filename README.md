@@ -31,7 +31,7 @@ body{
     -webkit-overflow-scrolling:touch;
     font-family:Arial,sans-serif;
     background:#f3f3f3;
-    padding:15px;
+    padding:12px;
     display:flex;
     justify-content:center;
     align-items:flex-start;
@@ -44,11 +44,11 @@ body{
 .container{
     width:100%;
     max-width:550px;
-    background:white;
-    border-radius:22px;
-    padding:28px;
+    background:#fff;
+    border-radius:20px;
+    padding:24px;
     box-shadow:0 10px 30px rgba(0,0,0,0.08);
-    margin-bottom:40px;
+    margin:0 auto;
 }
 
 /* =========================
@@ -61,24 +61,25 @@ body{
 }
 
 .logo{
-    width:95px;
-    height:95px;
+    width:90px;
+    height:90px;
     border-radius:50%;
     object-fit:cover;
-    margin-bottom:15px;
-    box-shadow:0 4px 14px rgba(0,0,0,0.15);
+    margin-bottom:14px;
+    max-width:100%;
 }
 
 .header h1{
     font-size:28px;
     color:#222;
-    margin-bottom:6px;
+    line-height:1.4;
     word-break:break-word;
 }
 
 .header p{
     font-size:14px;
     color:#666;
+    margin-top:4px;
 }
 
 /* =========================
@@ -90,14 +91,14 @@ body{
 }
 
 .form-section{
-    margin-bottom:25px;
+    margin-bottom:24px;
 }
 
 .form-section-title{
     font-size:14px;
     font-weight:bold;
-    color:#333;
     margin-bottom:12px;
+    color:#333;
 }
 
 label{
@@ -122,11 +123,12 @@ input,
 textarea,
 select{
     width:100%;
+    max-width:100%;
     padding:14px;
     border:1px solid #ddd;
     border-radius:14px;
     font-size:15px;
-    background:white;
+    background:#fff;
     transition:0.3s;
 }
 
@@ -147,7 +149,7 @@ textarea{
 }
 
 /* =========================
-   EXAMPLE
+   EXAMPLE BOX
 ========================= */
 
 .example-box{
@@ -158,7 +160,7 @@ textarea{
     margin-bottom:12px;
     line-height:1.7;
     font-size:13px;
-    word-break:break-word;
+    overflow-wrap:break-word;
 }
 
 /* =========================
@@ -184,6 +186,7 @@ textarea{
 .checkbox-item input,
 .color-option input{
     width:auto;
+    flex-shrink:0;
     margin-top:3px;
 }
 
@@ -195,7 +198,7 @@ textarea{
 }
 
 /* =========================
-   DATE
+   DATE TIME
 ========================= */
 
 .date-time-group{
@@ -223,6 +226,7 @@ button{
     font-weight:bold;
     cursor:pointer;
     transition:0.3s;
+    width:100%;
 }
 
 .btn-preview{
@@ -253,7 +257,7 @@ button{
     background:rgba(0,0,0,0.5);
     justify-content:center;
     align-items:center;
-    padding:18px;
+    padding:16px;
     z-index:999;
     overflow-y:auto;
 }
@@ -267,7 +271,7 @@ button{
     max-width:500px;
     background:white;
     border-radius:20px;
-    padding:24px;
+    padding:22px;
     max-height:90vh;
     overflow-y:auto;
 }
@@ -277,7 +281,7 @@ button{
     padding:12px;
     border-radius:12px;
     margin-bottom:10px;
-    word-break:break-word;
+    overflow-wrap:break-word;
     line-height:1.6;
 }
 
@@ -293,8 +297,8 @@ button{
     color:white;
     padding:14px 18px;
     border-radius:12px;
-    z-index:9999;
     display:none;
+    z-index:9999;
     max-width:90%;
 }
 
@@ -306,15 +310,10 @@ button{
    TABLET
 ========================= */
 
-@media(max-width:768px){
-
-    body{
-        padding:12px;
-    }
+@media screen and (max-width:768px){
 
     .container{
-        padding:24px;
-        border-radius:18px;
+        padding:22px;
     }
 
     .header h1{
@@ -331,7 +330,7 @@ button{
    MOBILE
 ========================= */
 
-@media(max-width:600px){
+@media screen and (max-width:600px){
 
     body{
         padding:10px;
@@ -341,12 +340,15 @@ button{
         width:100%;
         padding:18px;
         border-radius:16px;
-        margin:0;
+    }
+
+    .header{
+        margin-bottom:24px;
     }
 
     .logo{
-        width:85px;
-        height:85px;
+        width:80px;
+        height:80px;
     }
 
     .header h1{
@@ -357,11 +359,15 @@ button{
         font-size:13px;
     }
 
+    label{
+        font-size:13px;
+    }
+
     input,
     textarea,
     select{
-        font-size:14px;
         padding:13px;
+        font-size:14px;
     }
 
     .button-group{
@@ -370,14 +376,22 @@ button{
 
     button{
         width:100%;
+        padding:14px;
+        font-size:14px;
+    }
+
+    .checkbox-group,
+    .color-options{
+        gap:10px;
     }
 
     .modal{
-        padding:10px;
         align-items:flex-end;
+        padding:0;
     }
 
     .modal-content{
+        width:100%;
         max-width:100%;
         border-radius:20px 20px 0 0;
         padding:20px;
@@ -390,7 +404,11 @@ button{
    SMALL MOBILE
 ========================= */
 
-@media(max-width:400px){
+@media screen and (max-width:400px){
+
+    body{
+        padding:8px;
+    }
 
     .container{
         padding:15px;
@@ -400,8 +418,8 @@ button{
         font-size:20px;
     }
 
-    label{
-        font-size:13px;
+    .header p{
+        font-size:12px;
     }
 
     input,
@@ -411,8 +429,7 @@ button{
     }
 
     button{
-        font-size:14px;
-        padding:14px;
+        font-size:13px;
     }
 
     .preview-item{
@@ -422,19 +439,20 @@ button{
 }
 
 /* =========================
-   FIX OVERFLOW
+   OVERFLOW FIX
 ========================= */
 
 img,
-iframe,
-video{
+video,
+iframe{
     max-width:100%;
+    height:auto;
 }
 
 table{
-    width:100%;
-    overflow-x:auto;
     display:block;
+    overflow-x:auto;
+    width:100%;
 }
 
 </style>
