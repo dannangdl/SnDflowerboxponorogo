@@ -1,886 +1,489 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SnDflowerboxponorogo - Pesan Papan Bunga</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background-color: #f0f0f0;
-            min-height: 100vh;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-        }
+<title>SnDflowerboxponorogo - Pesan Papan Bunga</title>
 
-        .container {
-            background: white;
-            border-radius: 4px;
-            padding: 32px;
-            max-width: 500px;
-            width: 100%;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-        }
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        .header {
-            margin-bottom: 28px;
-        }
+body{
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+    background:#f3f3f3;
+    min-height:100vh;
+    padding:20px;
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+}
 
-        .header h1 {
-            color: #1a1a1a;
-            font-size: 24px;
-            font-weight: 500;
-            margin-bottom: 4px;
-        }
+.container{
+    background:white;
+    border-radius:20px;
+    padding:32px;
+    max-width:550px;
+    width:100%;
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
 
-        .header p {
-            color: #666;
-            font-size: 13px;
-            font-weight: 400;
-        }
+.header{
+    text-align:center;
+    margin-bottom:30px;
+}
 
-        .form-section {
-            margin-bottom: 24px;
-        }
+.logo{
+    width:100px;
+    height:100px;
+    object-fit:cover;
+    border-radius:50%;
+    margin-bottom:15px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.15);
+}
 
-        .form-section-title {
-            font-size: 12px;
-            color: #1a1a1a;
-            font-weight: 500;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
+.header h1{
+    font-size:32px;
+    color:#222;
+    margin-bottom:5px;
+}
 
-        .form-group {
-            margin-bottom: 16px;
-        }
+.header p{
+    color:#666;
+    font-size:15px;
+}
 
-        label {
-            display: block;
-            margin-bottom: 6px;
-            color: #333;
-            font-weight: 400;
-            font-size: 13px;
-        }
+.form-group{
+    margin-bottom:20px;
+}
 
-        .required::after {
-            content: " *";
-            color: #333;
-        }
+label{
+    display:block;
+    margin-bottom:8px;
+    font-size:14px;
+    color:#333;
+    font-weight:600;
+}
 
-        input[type="text"],
-        input[type="tel"],
-        input[type="date"],
-        input[type="time"],
-        input[type="file"],
-        textarea {
-            width: 100%;
-            padding: 10px 12px;
-            border: 1px solid #ddd;
-            border-radius: 2px;
-            font-size: 13px;
-            font-family: inherit;
-            background-color: #fff;
-            transition: border-color 0.2s;
-        }
+.required::after{
+    content:" *";
+    color:red;
+}
 
-        input[type="text"]:focus,
-        input[type="tel"]:focus,
-        input[type="date"]:focus,
-        input[type="time"]:focus,
-        input[type="file"]:focus,
-        textarea:focus {
-            outline: none;
-            border-color: #666;
-            background-color: #fafafa;
-        }
+input,
+textarea{
+    width:100%;
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    font-size:14px;
+    transition:0.3s;
+}
 
-        textarea {
-            resize: vertical;
-            min-height: 70px;
-            font-family: inherit;
-        }
+input:focus,
+textarea:focus{
+    outline:none;
+    border-color:#25D366;
+}
 
-        .checkbox-group,
-        .radio-group {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
+textarea{
+    min-height:100px;
+    resize:vertical;
+}
 
-        .checkbox-item,
-        .radio-item {
-            display: flex;
-            align-items: flex-start;
-            padding: 0;
-            gap: 8px;
-        }
+.example-box{
+    background:#f9f9f9;
+    padding:15px;
+    border-radius:10px;
+    margin-bottom:10px;
+    font-size:13px;
+    line-height:1.6;
+    border-left:4px solid #25D366;
+}
 
-        .checkbox-item input[type="checkbox"],
-        .radio-item input[type="radio"] {
-            margin-top: 3px;
-            cursor: pointer;
-            width: 16px;
-            height: 16px;
-            flex-shrink: 0;
-            accent-color: #333;
-        }
+.radio-group{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
 
-        .checkbox-item label,
-        .radio-item label {
-            margin: 0;
-            cursor: pointer;
-            font-weight: 400;
-            font-size: 13px;
-        }
+.radio-item{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
 
-        .color-options {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
+.radio-item input{
+    width:auto;
+}
 
-        .color-option {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 13px;
-        }
+.checkbox-group{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
 
-        .color-option input[type="checkbox"] {
-            width: 16px;
-            height: 16px;
-            cursor: pointer;
-            accent-color: #333;
-        }
+.checkbox-item{
+    display:flex;
+    align-items:center;
+    gap:5px;
+}
 
-        .example-box {
-            background-color: #f8f8f8;
-            border-left: 3px solid #ddd;
-            padding: 12px;
-            margin-bottom: 16px;
-            font-size: 12px;
-            color: #555;
-            border-radius: 2px;
-        }
+.checkbox-item input{
+    width:auto;
+}
 
-        .example-box strong {
-            display: block;
-            color: #1a1a1a;
-            margin-bottom: 6px;
-            font-weight: 500;
-        }
+.button-group{
+    display:flex;
+    gap:15px;
+    margin-top:30px;
+}
 
-        .example-item {
-            margin-bottom: 4px;
-            line-height: 1.4;
-        }
+button{
+    flex:1;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    font-size:15px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
 
-        .date-time-group {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-        }
+.btn-preview{
+    background:#f1f1f1;
+    color:#333;
+}
 
-        .date-time-group .form-group {
-            margin-bottom: 0;
-        }
+.btn-preview:hover{
+    background:#ddd;
+}
 
-        .date-time-group label {
-            font-size: 12px;
-        }
+.btn-submit{
+    background:#25D366;
+    color:white;
+}
 
-        .emoji-example {
-            font-size: 12px;
-            color: #999;
-            margin-top: 4px;
-        }
+.btn-submit:hover{
+    background:#1ebe5d;
+}
 
-        .button-group {
-            display: flex;
-            gap: 12px;
-            margin-top: 28px;
-        }
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.5);
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    z-index:999;
+}
 
-        button {
-            padding: 10px 16px;
-            border: 1px solid #ddd;
-            border-radius: 2px;
-            font-size: 13px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.2s;
-            background-color: #fff;
-            color: #333;
-        }
+.modal.active{
+    display:flex;
+}
 
-        .btn-preview {
-            flex: 1;
-            border: 1px solid #ddd;
-            background-color: #fff;
-            color: #333;
-        }
+.modal-content{
+    background:white;
+    width:100%;
+    max-width:500px;
+    border-radius:20px;
+    padding:25px;
+}
 
-        .btn-preview:hover {
-            background-color: #f5f5f5;
-        }
+.modal-content h2{
+    margin-bottom:20px;
+}
 
-        .btn-submit {
-            flex: 1;
-            background-color: #333;
-            color: white;
-            border: 1px solid #333;
-        }
+.preview-item{
+    margin-bottom:12px;
+    padding:10px;
+    background:#f8f8f8;
+    border-radius:10px;
+}
 
-        .btn-submit:hover {
-            background-color: #1a1a1a;
-            border-color: #1a1a1a;
-        }
+.success-alert{
+    position:fixed;
+    top:20px;
+    right:20px;
+    background:#25D366;
+    color:white;
+    padding:14px 18px;
+    border-radius:10px;
+    display:none;
+    z-index:9999;
+}
 
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.4);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
+.success-alert.show{
+    display:block;
+}
 
-        .modal.active {
-            display: flex;
-        }
+@media(max-width:600px){
 
-        .modal-content {
-            background: white;
-            border-radius: 4px;
-            padding: 24px;
-            max-width: 450px;
-            width: 100%;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-        }
+    .container{
+        padding:20px;
+    }
 
-        .modal-header {
-            font-size: 16px;
-            font-weight: 500;
-            color: #1a1a1a;
-            margin-bottom: 16px;
-        }
+    .header h1{
+        font-size:25px;
+    }
 
-        .preview-item {
-            display: grid;
-            grid-template-columns: 140px 1fr;
-            gap: 12px;
-            margin-bottom: 12px;
-            padding: 8px;
-            background: #fafafa;
-            border-radius: 2px;
-            font-size: 13px;
-        }
+    .button-group{
+        flex-direction:column;
+    }
 
-        .preview-label {
-            font-weight: 500;
-            color: #333;
-        }
-
-        .preview-value {
-            color: #555;
-            word-break: break-word;
-        }
-
-        .modal-footer {
-            display: flex;
-            gap: 12px;
-            margin-top: 20px;
-        }
-
-        .btn-close {
-            flex: 1;
-            background-color: #fff;
-            color: #333;
-            border: 1px solid #ddd;
-        }
-
-        .btn-close:hover {
-            background-color: #f5f5f5;
-        }
-
-        .btn-send {
-            flex: 1;
-            background-color: #333;
-            color: white;
-            border: 1px solid #333;
-        }
-
-        .btn-send:hover {
-            background-color: #1a1a1a;
-        }
-
-        .error-message {
-            color: #d32f2f;
-            font-size: 12px;
-            margin-top: 4px;
-            display: none;
-        }
-
-        .error-message.show {
-            display: block;
-        }
-
-        .success-alert {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: #333;
-            color: white;
-            padding: 12px 16px;
-            border-radius: 2px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            display: none;
-            z-index: 2000;
-            font-size: 13px;
-            animation: slideIn 0.3s ease-out;
-        }
-
-        .success-alert.show {
-            display: block;
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(100px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @media (max-width: 600px) {
-            .container {
-                padding: 20px;
-            }
-
-            .header h1 {
-                font-size: 20px;
-            }
-
-            .date-time-group {
-                grid-template-columns: 1fr;
-            }
-
-            .modal-content {
-                padding: 16px;
-            }
-
-            .preview-item {
-                grid-template-columns: 1fr;
-            }
-
-            .preview-label::after {
-                content: "";
-            }
-
-            .success-alert {
-                left: 20px;
-                right: 20px;
-            }
-        }
-    </style>
+}
+</style>
 </head>
+
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>SnDflowerboxponorogo</h1>
-            <p>Abadikan momenmu dengan kami</p>
+
+<div class="container">
+
+    <div class="header">
+        <img src="logo.png" alt="Logo" class="logo">
+
+        <h1>SnDflowerboxponorogo</h1>
+        <p>Abadikan momenmu dengan kami</p>
+    </div>
+
+    <form id="orderForm">
+
+        <div class="form-group">
+            <label class="required">Nama Pemesan</label>
+            <input type="text" id="nama">
         </div>
 
-        <form id="orderForm">
-            <!-- Nama Pemesan -->
-            <div class="form-group">
-                <label for="nama" class="required">Nama Pemesan</label>
-                <input type="text" id="nama" name="nama" placeholder="">
-                <div class="error-message"></div>
+        <div class="form-group">
+            <label>Instagram (Opsional)</label>
+            <input type="text" id="instagram">
+        </div>
+
+        <div class="form-group">
+            <label class="required">Request Ucapan</label>
+
+            <div class="example-box">
+                🎉 CONGRATULATIONS<br>
+                Genaro Atiallune, S.H<br>
+                Wish U Luck<br>
+                From : Me
             </div>
 
-            <!-- Instagram -->
-            <div class="form-group">
-                <label for="instagram">Instagram (Opsional)</label>
-                <input type="text" id="instagram" name="instagram" placeholder="">
-            </div>
+            <textarea id="ucapan"></textarea>
+        </div>
 
-            <!-- Request Ucapan -->
-            <div class="form-group">
-                <label for="ucapan" class="required">Reques Ucapan</label>
-                <div class="example-box">
-                    <strong>Contoh:</strong>
-                    <div class="example-item">🎉 CONGRATULATIONS</div>
-                    <div class="example-item">Genaro Atiallune, S. H</div>
-                    <div class="example-item">Wish U luck</div>
-                    <div class="example-item">From: me</div>
+        <div class="form-group">
+            <label class="required">Jenis Papan Bunga</label>
+
+            <div class="radio-group">
+
+                <div class="radio-item">
+                    <input type="radio" name="jenis" value="Akrilik Bulat Putih">
+                    <span>Akrilik Bulat Putih</span>
                 </div>
-                <textarea id="ucapan" name="ucapan" placeholder=""></textarea>
-                <div class="error-message"></div>
-            </div>
 
-            <!-- Jenis Papan Bunga -->
-            <div class="form-section">
-                <div class="form-section-title">Jenis Papan Bunga</div>
-                <div class="radio-group">
-                    <div class="radio-item">
-                        <input type="radio" id="jenis1" name="jenis" value="Akrilik Bulat - Putih" required>
-                        <label for="jenis1">Akrilik Bulat - Putih</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="jenis2" name="jenis" value="Akrilik Bulat - Hitam">
-                        <label for="jenis2">Akrilik Bulat - Hitam</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="jenis3" name="jenis" value="Akrilik Kubah - Putih">
-                        <label for="jenis3">Akrilik Kubah - Putih</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="jenis4" name="jenis" value="Akrilik Kubah - Hitam">
-                        <label for="jenis4">Akrilik Kubah - Hitam</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="jenis5" name="jenis" value="Akrilik Ring Besi">
-                        <label for="jenis5">Akrilik Ring Besi</label>
-                    </div>
+                <div class="radio-item">
+                    <input type="radio" name="jenis" value="Akrilik Bulat Hitam">
+                    <span>Akrilik Bulat Hitam</span>
                 </div>
-                <div class="error-message"></div>
-            </div>
 
-            <!-- Request Warna Tulisan -->
-            <div class="form-group">
-                <label for="warna" class="required">Reques warna Tulisan (Gold, Hitam, Pink, dsb)</label>
-                <input type="text" id="warna" name="warna" placeholder="">
-                <div class="error-message"></div>
-            </div>
-
-            <!-- Selendang -->
-            <div class="form-section">
-                <div class="form-section-title">Selendang</div>
-                <div class="checkbox-group">
-                    <div class="checkbox-item">
-                        <input type="radio" id="selendang1" name="selendang" value="Pakai">
-                        <label for="selendang1">Pakai</label>
-                    </div>
-                    <div class="checkbox-item">
-                        <input type="radio" id="selendang2" name="selendang" value="Tidak">
-                        <label for="selendang2">Tidak</label>
-                    </div>
+                <div class="radio-item">
+                    <input type="radio" name="jenis" value="Akrilik Kubah Putih">
+                    <span>Akrilik Kubah Putih</span>
                 </div>
-            </div>
 
-            <!-- Pilih Beberapa Opsi -->
-            <div class="form-section">
-                <div class="form-section-title">Pilih beberapa opsi</div>
-                <div class="color-options">
-                    <div class="color-option">
-                        <input type="checkbox" id="merah" name="warna-pilihan" value="Merah">
-                        <label for="merah">Merah</label>
-                    </div>
-                    <div class="color-option">
-                        <input type="checkbox" id="pink" name="warna-pilihan" value="Pink">
-                        <label for="pink">Pink</label>
-                    </div>
-                    <div class="color-option">
-                        <input type="checkbox" id="biru" name="warna-pilihan" value="Biru">
-                        <label for="biru">Biru</label>
-                    </div>
-                    <div class="color-option">
-                        <input type="checkbox" id="ungu" name="warna-pilihan" value="Ungu">
-                        <label for="ungu">Ungu</label>
-                    </div>
-                    <div class="color-option">
-                        <input type="checkbox" id="putih" name="warna-pilihan" value="Putih">
-                        <label for="putih">Putih</label>
-                    </div>
-                    <div class="color-option">
-                        <input type="checkbox" id="peach" name="warna-pilihan" value="Peach">
-                        <label for="peach">Peach</label>
-                    </div>
-                    <div class="color-option">
-                        <input type="checkbox" id="kuning" name="warna-pilihan" value="Kuning">
-                        <label for="kuning">Kuning</label>
-                    </div>
-                    <div class="color-option">
-                        <input type="checkbox" id="hijau" name="warna-pilihan" value="Hijau">
-                        <label for="hijau">Hijau</label>
-                    </div>
-                    <div class="color-option">
-                        <input type="checkbox" id="coklat" name="warna-pilihan" value="Coklat">
-                        <label for="coklat">Coklat</label>
-                    </div>
-                    <div class="color-option">
-                        <input type="checkbox" id="mix" name="warna-pilihan" value="Mix">
-                        <label for="mix">Mix</label>
-                    </div>
+                <div class="radio-item">
+                    <input type="radio" name="jenis" value="Akrilik Kubah Hitam">
+                    <span>Akrilik Kubah Hitam</span>
                 </div>
-            </div>
 
-            <!-- Pilih Tanggal dan Waktu -->
-            <div class="form-section">
-                <div class="form-section-title">Pilih tanggal dan waktu Pengantaran</div>
-                <div class="date-time-group">
-                    <div class="form-group">
-                        <label for="tanggal">Pilih tanggal</label>
-                        <input type="date" id="tanggal" name="tanggal">
-                    </div>
-                    <div class="form-group">
-                        <label for="waktu">Pilih waktu</label>
-                        <input type="time" id="waktu" name="waktu">
-                    </div>
+                <div class="radio-item">
+                    <input type="radio" name="jenis" value="Akrilik Ring Besi">
+                    <span>Akrilik Ring Besi</span>
                 </div>
-            </div>
 
-            <!-- Alamat Pengantaran -->
-            <div class="form-group">
-                <label for="alamat" class="required">Alamat Pengantaran/Gedung</label>
-                <input type="text" id="alamat" name="alamat" placeholder="">
-                <div class="error-message"></div>
-            </div>
-
-            <!-- WhatsApp Penerima -->
-            <div class="form-group">
-                <label for="whatsapp" class="required">Whatsapp Penerima/Pemesan</label>
-                <input type="tel" id="whatsapp" name="whatsapp" placeholder="">
-                <div class="error-message"></div>
-            </div>
-
-            <!-- Request Emoji -->
-            <div class="form-group">
-                <label for="emoji">Reques Emoji</label>
-                <input type="text" id="emoji" name="emoji" placeholder="">
-                <div class="emoji-example">Contoh: 🎉 💐 🌸 ⚙️ dsb.</div>
-            </div>
-
-            <!-- Tombol -->
-            <div class="button-group">
-                <button type="button" class="btn-preview" onclick="previewPesanan()">Preview</button>
-                <button type="button" class="btn-submit" onclick="submitForm()">Kirim</button>
-            </div>
-        </form>
-    </div>
-
-    <!-- Modal Preview -->
-    <div class="modal" id="previewModal">
-        <div class="modal-content">
-            <div class="modal-header">Preview Pesanan</div>
-            
-            <div id="previewContent">
-                <!-- Konten preview akan diisi oleh JavaScript -->
-            </div>
-
-            <div class="modal-footer">
-                <button type="button" class="btn-close" onclick="closePreview()">Kembali</button>
-                <button type="button" class="btn-send" onclick="sendToWhatsApp()">Kirim ke WhatsApp</button>
             </div>
         </div>
+
+        <div class="form-group">
+            <label class="required">Request Warna Tulisan</label>
+            <input type="text" id="warna">
+        </div>
+
+        <div class="form-group">
+            <label>Warna Bunga</label>
+
+            <div class="checkbox-group">
+
+                <div class="checkbox-item">
+                    <input type="checkbox" value="Merah" class="warnaBunga">
+                    <span>Merah</span>
+                </div>
+
+                <div class="checkbox-item">
+                    <input type="checkbox" value="Pink" class="warnaBunga">
+                    <span>Pink</span>
+                </div>
+
+                <div class="checkbox-item">
+                    <input type="checkbox" value="Putih" class="warnaBunga">
+                    <span>Putih</span>
+                </div>
+
+                <div class="checkbox-item">
+                    <input type="checkbox" value="Biru" class="warnaBunga">
+                    <span>Biru</span>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="required">Alamat Pengantaran</label>
+            <input type="text" id="alamat">
+        </div>
+
+        <div class="form-group">
+            <label class="required">Nomor WhatsApp</label>
+            <input type="tel" id="whatsapp">
+        </div>
+
+        <div class="button-group">
+            <button type="button" class="btn-preview" onclick="previewPesanan()">
+                Preview
+            </button>
+
+            <button type="button" class="btn-submit" onclick="sendWhatsApp()">
+                Kirim WhatsApp
+            </button>
+        </div>
+
+    </form>
+
+</div>
+
+<div class="modal" id="modal">
+
+    <div class="modal-content">
+
+        <h2>Preview Pesanan</h2>
+
+        <div id="previewContent"></div>
+
+        <div class="button-group">
+
+            <button class="btn-preview" onclick="closeModal()">
+                Tutup
+            </button>
+
+            <button class="btn-submit" onclick="sendNow()">
+                Kirim
+            </button>
+
+        </div>
+
     </div>
 
-    <!-- Success Alert -->
-    <div class="success-alert" id="successAlert">
-        Pesanan Anda telah disiapkan! Membuka WhatsApp...
-    </div>
+</div>
 
-    <script>
-        const ADMIN_PHONE = '628513566976';
+<div class="success-alert" id="successAlert">
+    Membuka WhatsApp...
+</div>
 
-        function validateForm() {
-            const form = document.getElementById('orderForm');
-            const nama = document.getElementById('nama').value.trim();
-            const ucapan = document.getElementById('ucapan').value.trim();
-            const jenis = document.querySelector('input[name="jenis"]:checked');
-            const warna = document.getElementById('warna').value.trim();
-            const alamat = document.getElementById('alamat').value.trim();
-            const whatsapp = document.getElementById('whatsapp').value.trim();
+<script>
 
-            let isValid = true;
+const ADMIN_PHONE = "6285135666976";
 
-            // Validasi Nama
-            if (!nama) {
-                showError('nama', 'Nama pemesan tidak boleh kosong');
-                isValid = false;
-            } else {
-                hideError('nama');
-            }
+function getData(){
 
-            // Validasi Ucapan
-            if (!ucapan) {
-                showError('ucapan', 'Request ucapan tidak boleh kosong');
-                isValid = false;
-            } else {
-                hideError('ucapan');
-            }
+    const warnaBunga = [...document.querySelectorAll('.warnaBunga:checked')]
+    .map(el => el.value)
+    .join(', ');
 
-            // Validasi Jenis
-            if (!jenis) {
-                showError('jenis', 'Pilih jenis papan bunga');
-                isValid = false;
-            } else {
-                hideError('jenis');
-            }
+    return {
+        nama: document.getElementById('nama').value,
+        instagram: document.getElementById('instagram').value,
+        ucapan: document.getElementById('ucapan').value,
+        jenis: document.querySelector('input[name="jenis"]:checked')?.value || '',
+        warna: document.getElementById('warna').value,
+        warnaBunga,
+        alamat: document.getElementById('alamat').value,
+        whatsapp: document.getElementById('whatsapp').value
+    };
+}
 
-            // Validasi Warna
-            if (!warna) {
-                showError('warna', 'Request warna tulisan tidak boleh kosong');
-                isValid = false;
-            } else {
-                hideError('warna');
-            }
+function previewPesanan(){
 
-            // Validasi Alamat
-            if (!alamat) {
-                showError('alamat', 'Alamat pengantaran tidak boleh kosong');
-                isValid = false;
-            } else {
-                hideError('alamat');
-            }
+    const data = getData();
 
-            // Validasi WhatsApp
-            if (!whatsapp) {
-                showError('whatsapp', 'Nomor WhatsApp tidak boleh kosong');
-                isValid = false;
-            } else if (!/^\d{10,15}$/.test(whatsapp.replace(/\D/g, ''))) {
-                showError('whatsapp', 'Nomor WhatsApp tidak valid');
-                isValid = false;
-            } else {
-                hideError('whatsapp');
-            }
+    if(!data.nama || !data.ucapan || !data.jenis || !data.warna || !data.alamat || !data.whatsapp){
+        alert("Lengkapi data terlebih dahulu!");
+        return;
+    }
 
-            return isValid;
-        }
+    const html = `
+        <div class="preview-item"><b>Nama:</b> ${data.nama}</div>
+        <div class="preview-item"><b>Instagram:</b> ${data.instagram}</div>
+        <div class="preview-item"><b>Ucapan:</b> ${data.ucapan}</div>
+        <div class="preview-item"><b>Jenis:</b> ${data.jenis}</div>
+        <div class="preview-item"><b>Warna Tulisan:</b> ${data.warna}</div>
+        <div class="preview-item"><b>Warna Bunga:</b> ${data.warnaBunga}</div>
+        <div class="preview-item"><b>Alamat:</b> ${data.alamat}</div>
+        <div class="preview-item"><b>WhatsApp:</b> ${data.whatsapp}</div>
+    `;
 
-        function showError(fieldId, message) {
-            const field = document.getElementById(fieldId);
-            if (field) {
-                const errorEl = field.nextElementSibling;
-                if (errorEl && errorEl.classList.contains('error-message')) {
-                    errorEl.textContent = message;
-                    errorEl.classList.add('show');
-                }
-            }
-        }
+    document.getElementById('previewContent').innerHTML = html;
 
-        function hideError(fieldId) {
-            const field = document.getElementById(fieldId);
-            if (field) {
-                const errorEl = field.nextElementSibling;
-                if (errorEl && errorEl.classList.contains('error-message')) {
-                    errorEl.classList.remove('show');
-                }
-            }
-        }
+    document.getElementById('modal').classList.add('active');
 
-        function getFormData() {
-            const warnaChecked = Array.from(document.querySelectorAll('input[name="warna-pilihan"]:checked'))
-                .map(el => el.value)
-                .join(', ');
+}
 
-            return {
-                nama: document.getElementById('nama').value.trim(),
-                instagram: document.getElementById('instagram').value.trim(),
-                ucapan: document.getElementById('ucapan').value.trim(),
-                jenis: document.querySelector('input[name="jenis"]:checked')?.value || '',
-                warna: document.getElementById('warna').value.trim(),
-                selendang: document.querySelector('input[name="selendang"]:checked')?.value || '',
-                warnaFlower: warnaChecked,
-                tanggal: document.getElementById('tanggal').value || '',
-                waktu: document.getElementById('waktu').value || '',
-                alamat: document.getElementById('alamat').value.trim(),
-                whatsapp: document.getElementById('whatsapp').value.trim(),
-                emoji: document.getElementById('emoji').value.trim()
-            };
-        }
+function closeModal(){
+    document.getElementById('modal').classList.remove('active');
+}
 
-        function buildMessage(data) {
-            let message = `Halo Admin SnDflowerboxponorogo, saya ingin memesan papan bunga.\n\n`;
-            message += `Nama: ${data.nama}\n`;
-            
-            if (data.instagram) {
-                message += `Instagram: @${data.instagram}\n`;
-            }
-            
-            message += `Ucapan: ${data.ucapan}\n`;
-            message += `Jenis Papan: ${data.jenis}\n`;
-            message += `Warna Tulisan: ${data.warna}\n`;
-            
-            if (data.selendang) {
-                message += `Selendang: ${data.selendang}\n`;
-            }
+function sendWhatsApp(){
 
-            if (data.warnaFlower) {
-                message += `Warna Bunga: ${data.warnaFlower}\n`;
-            }
+    previewPesanan();
 
-            if (data.tanggal) {
-                message += `Tanggal Pengantaran: ${data.tanggal}\n`;
-            }
+}
 
-            if (data.waktu) {
-                message += `Waktu: ${data.waktu}\n`;
-            }
+function sendNow(){
 
-            message += `Alamat: ${data.alamat}\n`;
-            message += `No WA: ${data.whatsapp}`;
+    const data = getData();
 
-            if (data.emoji) {
-                message += `\nEmoji: ${data.emoji}`;
-            }
-            
-            return message;
-        }
+    let message = `Halo Admin SnDflowerboxponorogo,%0A%0A`;
 
-        function previewPesanan() {
-            if (!validateForm()) {
-                return;
-            }
+    message += `Nama : ${data.nama}%0A`;
+    message += `Instagram : ${data.instagram}%0A`;
+    message += `Ucapan : ${data.ucapan}%0A`;
+    message += `Jenis : ${data.jenis}%0A`;
+    message += `Warna Tulisan : ${data.warna}%0A`;
+    message += `Warna Bunga : ${data.warnaBunga}%0A`;
+    message += `Alamat : ${data.alamat}%0A`;
+    message += `No WhatsApp : ${data.whatsapp}`;
 
-            const data = getFormData();
-            const previewContent = document.getElementById('previewContent');
-            
-            let html = `
-                <div class="preview-item">
-                    <div class="preview-label">Nama:</div>
-                    <div class="preview-value">${data.nama}</div>
-                </div>
-            `;
+    const url = `https://wa.me/${ADMIN_PHONE}?text=${message}`;
 
-            if (data.instagram) {
-                html += `
-                <div class="preview-item">
-                    <div class="preview-label">Instagram:</div>
-                    <div class="preview-value">@${data.instagram}</div>
-                </div>
-                `;
-            }
+    document.getElementById('successAlert').classList.add('show');
 
-            html += `
-                <div class="preview-item">
-                    <div class="preview-label">Ucapan:</div>
-                    <div class="preview-value">${data.ucapan}</div>
-                </div>
-                <div class="preview-item">
-                    <div class="preview-label">Jenis Papan:</div>
-                    <div class="preview-value">${data.jenis}</div>
-                </div>
-                <div class="preview-item">
-                    <div class="preview-label">Warna Tulisan:</div>
-                    <div class="preview-value">${data.warna}</div>
-                </div>
-            `;
+    setTimeout(() => {
 
-            if (data.selendang) {
-                html += `
-                <div class="preview-item">
-                    <div class="preview-label">Selendang:</div>
-                    <div class="preview-value">${data.selendang}</div>
-                </div>
-                `;
-            }
+        window.open(url, '_blank');
 
-            if (data.warnaFlower) {
-                html += `
-                <div class="preview-item">
-                    <div class="preview-label">Warna Bunga:</div>
-                    <div class="preview-value">${data.warnaFlower}</div>
-                </div>
-                `;
-            }
+        document.getElementById('successAlert').classList.remove('show');
 
-            if (data.tanggal) {
-                html += `
-                <div class="preview-item">
-                    <div class="preview-label">Tanggal:</div>
-                    <div class="preview-value">${data.tanggal}</div>
-                </div>
-                `;
-            }
+        closeModal();
 
-            if (data.waktu) {
-                html += `
-                <div class="preview-item">
-                    <div class="preview-label">Waktu:</div>
-                    <div class="preview-value">${data.waktu}</div>
-                </div>
-                `;
-            }
+    }, 1000);
 
-            html += `
-                <div class="preview-item">
-                    <div class="preview-label">Alamat:</div>
-                    <div class="preview-value">${data.alamat}</div>
-                </div>
-                <div class="preview-item">
-                    <div class="preview-label">No WA:</div>
-                    <div class="preview-value">${data.whatsapp}</div>
-                </div>
-            `;
+}
 
-            if (data.emoji) {
-                html += `
-                <div class="preview-item">
-                    <div class="preview-label">Emoji:</div>
-                    <div class="preview-value">${data.emoji}</div>
-                </div>
-                `;
-            }
+</script>
 
-            previewContent.innerHTML = html;
-            document.getElementById('previewModal').classList.add('active');
-        }
-
-        function closePreview() {
-            document.getElementById('previewModal').classList.remove('active');
-        }
-
-        function sendToWhatsApp() {
-            const data = getFormData();
-            const message = buildMessage(data);
-            const encodedMessage = encodeURIComponent(message);
-            const whatsappUrl = `https://wa.me/${6285135666976}?text=${encodedMessage}`;
-            
-            document.getElementById('successAlert').classList.add('show');
-            
-            setTimeout(() => {
-                window.open(whatsappUrl, '_blank');
-                document.getElementById('successAlert').classList.remove('show');
-                document.getElementById('orderForm').reset();
-                closePreview();
-            }, 800);
-        }
-
-        function submitForm() {
-            if (validateForm()) {
-                previewPesanan();
-            }
-        }
-
-        // Clear error saat user mulai ketik
-        document.getElementById('orderForm').addEventListener('input', function(e) {
-            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
-                const errorEl = e.target.nextElementSibling;
-                if (errorEl && errorEl.classList.contains('error-message')) {
-                    errorEl.classList.remove('show');
-                }
-            }
-        });
-    </script>
 </body>
 </html>
