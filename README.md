@@ -477,7 +477,7 @@ table{
 
 <div class="form-group">
 <label class="required">Nama Pemesan</label>
-<input type="text" id="nama"placeholder="Contoh: Genara">
+<input type="text" id="nama">
 </div>
 
 <div class="form-group">
