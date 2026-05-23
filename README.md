@@ -1,10 +1,10 @@
-
+<!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
+<title>SnDflowerboxponorogo</title>
 
 <style>
 
@@ -17,7 +17,7 @@
 body{
     font-family:Arial,sans-serif;
     background:#f3f3f3;
-    padding:20px;
+    padding:12px;
     display:flex;
     justify-content:center;
 }
@@ -27,18 +27,18 @@ body{
     max-width:550px;
     background:white;
     border-radius:20px;
-    padding:30px;
+    padding:24px;
     box-shadow:0 10px 30px rgba(0,0,0,0.08);
 }
 
 .header{
     text-align:center;
-    margin-bottom:30px;
+    margin-bottom:24px;
 }
 
 .logo{
-    width:100px;
-    height:100px;
+    width:90px;
+    height:90px;
     object-fit:cover;
     border-radius:50%;
     margin-bottom:15px;
@@ -46,13 +46,14 @@ body{
 }
 
 .header h1{
-    font-size:30px;
-    margin-bottom:5px;
+    font-size:28px;
+    margin-bottom:6px;
     color:#222;
 }
 
 .header p{
     color:#666;
+    font-size:14px;
 }
 
 .form-group{
@@ -64,7 +65,7 @@ body{
 }
 
 .form-section-title{
-    font-size:13px;
+    font-size:14px;
     font-weight:bold;
     margin-bottom:12px;
     color:#333;
@@ -73,7 +74,7 @@ body{
 label{
     display:block;
     margin-bottom:8px;
-    font-size:14px;
+    font-size:15px;
     font-weight:bold;
     color:#333;
 }
@@ -86,10 +87,11 @@ label{
 input,
 textarea{
     width:100%;
-    padding:12px;
+    padding:14px;
     border:1px solid #ddd;
-    border-radius:12px;
-    font-size:14px;
+    border-radius:14px;
+    font-size:16px;
+    -webkit-appearance:none;
 }
 
 input:focus,
@@ -99,7 +101,7 @@ textarea:focus{
 }
 
 textarea{
-    min-height:100px;
+    min-height:120px;
     resize:vertical;
 }
 
@@ -124,13 +126,17 @@ textarea{
 .color-option{
     display:flex;
     align-items:center;
-    gap:10px;
+    gap:12px;
+    padding:10px;
+    border-radius:12px;
+    background:#fafafa;
 }
 
 .radio-item input,
 .checkbox-item input,
 .color-option input{
-    width:auto;
+    width:20px;
+    height:20px;
 }
 
 .checkbox-group,
@@ -154,11 +160,11 @@ textarea{
 
 button{
     flex:1;
-    padding:14px;
+    padding:16px;
     border:none;
-    border-radius:12px;
+    border-radius:14px;
     cursor:pointer;
-    font-size:15px;
+    font-size:16px;
     font-weight:bold;
     transition:0.3s;
 }
@@ -186,8 +192,8 @@ button{
     inset:0;
     background:rgba(0,0,0,0.5);
     justify-content:center;
-    align-items:center;
-    padding:20px;
+    align-items:flex-end;
+    padding:0;
     z-index:999;
 }
 
@@ -199,8 +205,10 @@ button{
     background:white;
     width:100%;
     max-width:500px;
-    border-radius:20px;
-    padding:25px;
+    border-radius:24px 24px 0 0;
+    padding:20px;
+    max-height:90vh;
+    overflow-y:auto;
 }
 
 .preview-item{
@@ -208,18 +216,24 @@ button{
     padding:12px;
     border-radius:10px;
     margin-bottom:10px;
+    line-height:1.6;
+    word-break:break-word;
 }
 
 .success-alert{
     position:fixed;
-    top:20px;
-    right:20px;
+    top:15px;
+    left:50%;
+    transform:translateX(-50%);
     background:#25D366;
     color:white;
     padding:14px 18px;
-    border-radius:10px;
+    border-radius:12px;
     display:none;
     z-index:9999;
+    width:90%;
+    max-width:320px;
+    text-align:center;
 }
 
 .success-alert.show{
@@ -228,20 +242,50 @@ button{
 
 @media(max-width:600px){
 
+    body{
+        padding:0;
+        background:white;
+    }
+
     .container{
-        padding:20px;
+        max-width:100%;
+        min-height:100vh;
+        border-radius:0;
+        padding:18px;
+        box-shadow:none;
     }
 
     .header h1{
-        font-size:24px;
+        font-size:22px;
+        line-height:1.3;
+    }
+
+    .header p{
+        font-size:14px;
+    }
+
+    .logo{
+        width:80px;
+        height:80px;
     }
 
     .button-group{
         flex-direction:column;
+        gap:12px;
     }
 
     .date-time-group{
         grid-template-columns:1fr;
+        gap:0;
+    }
+
+    .checkbox-group,
+    .color-options{
+        flex-direction:column;
+    }
+
+    button{
+        width:100%;
     }
 
 }
@@ -265,19 +309,16 @@ button{
 
     <form id="orderForm">
 
-        <!-- Nama -->
         <div class="form-group">
             <label class="required">Nama Pemesan</label>
             <input type="text" id="nama">
         </div>
 
-        <!-- Instagram -->
         <div class="form-group">
             <label>Instagram</label>
             <input type="text" id="instagram">
         </div>
 
-        <!-- Ucapan -->
         <div class="form-group">
 
             <label class="required">Request Ucapan</label>
@@ -293,7 +334,6 @@ button{
 
         </div>
 
-        <!-- Jenis -->
         <div class="form-group">
 
             <label class="required">Jenis Papan Bunga</label>
@@ -329,13 +369,11 @@ button{
 
         </div>
 
-        <!-- Warna Tulisan -->
         <div class="form-group">
             <label class="required">Request Warna Tulisan</label>
             <input type="text" id="warna">
         </div>
 
-        <!-- Selendang -->
         <div class="form-section">
 
             <div class="form-section-title">
@@ -358,7 +396,6 @@ button{
 
         </div>
 
-        <!-- Warna Bunga -->
         <div class="form-section">
 
             <div class="form-section-title">
@@ -421,7 +458,6 @@ button{
 
         </div>
 
-        <!-- Tanggal -->
         <div class="form-section">
 
             <div class="form-section-title">
@@ -444,27 +480,21 @@ button{
 
         </div>
 
-        <!-- Alamat -->
         <div class="form-group">
             <label class="required">Alamat Pengantaran / Gedung</label>
             <input type="text" id="alamat">
         </div>
 
-        <!-- WhatsApp -->
         <div class="form-group">
             <label class="required">WhatsApp Pemesan</label>
             <input type="tel" id="whatsapp">
         </div>
 
-        <!-- Emoji -->
         <div class="form-group">
             <label>Request Emoji</label>
-            <input type="text" id="emoji" placeholder="🎉 💐 🌸 ⚙️">
+            <input type="text" id="emoji" placeholder="🎉 💐 🌸">
         </div>
 
-        <!-- Upload -->
-
-        <!-- Button -->
         <div class="button-group">
 
             <button type="button" class="btn-preview" onclick="previewPesanan()">
@@ -481,7 +511,6 @@ button{
 
 </div>
 
-<!-- Modal -->
 <div class="modal" id="modal">
 
     <div class="modal-content">
@@ -508,7 +537,6 @@ button{
 
 </div>
 
-<!-- Alert -->
 <div class="success-alert" id="successAlert">
     Membuka WhatsApp...
 </div>
@@ -571,27 +599,16 @@ function previewPesanan(){
     const html = `
 
         <div class="preview-item"><b>Nama:</b> ${data.nama}</div>
-
         <div class="preview-item"><b>Instagram:</b> ${data.instagram}</div>
-
         <div class="preview-item"><b>Ucapan:</b> ${data.ucapan}</div>
-
         <div class="preview-item"><b>Jenis:</b> ${data.jenis}</div>
-
         <div class="preview-item"><b>Warna Tulisan:</b> ${data.warna}</div>
-
         <div class="preview-item"><b>Selendang:</b> ${data.selendang}</div>
-
         <div class="preview-item"><b>Warna Bunga:</b> ${data.warnaBunga}</div>
-
         <div class="preview-item"><b>Tanggal:</b> ${data.tanggal}</div>
-
         <div class="preview-item"><b>Waktu:</b> ${data.waktu}</div>
-
         <div class="preview-item"><b>Alamat:</b> ${data.alamat}</div>
-
         <div class="preview-item"><b>WhatsApp:</b> ${data.whatsapp}</div>
-
         <div class="preview-item"><b>Emoji:</b> ${data.emoji}</div>
 
     `;
