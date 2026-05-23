@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SnDflowerboxponorogo</title>
+
 
 <style>
 
@@ -463,10 +463,6 @@ button{
         </div>
 
         <!-- Upload -->
-        <div class="form-group">
-            <label>Upload Referensi Foto</label>
-            <input type="file" id="foto">
-        </div>
 
         <!-- Button -->
         <div class="button-group">
